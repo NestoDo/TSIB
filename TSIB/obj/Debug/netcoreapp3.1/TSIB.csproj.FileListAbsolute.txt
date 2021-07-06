@@ -41,8 +41,6 @@ C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\TSIB.dll
 C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\TSIB.pdb
 C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\TSIB.genruntimeconfig.cache
 C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\TSIB.csproj.CopyComplete
-C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\TSIB.Model.dll
-C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\TSIB.Model.pdb
 C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\EmployeeList.razor.g.cs
 C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\Razor\Pages\EmployeeList.razor.g.cs
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\Humanizer.dll
@@ -91,3 +89,4 @@ C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\runtimes\win\lib\n
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\TSIB.Api.dll
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\TSIB.Api.pdb
+C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\Dapper.dll

@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TSIB.Api.Models;
+using TSIB.Api.Repositories;
 
 namespace TSIB.Api
 {
@@ -30,7 +30,7 @@ namespace TSIB.Api
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
 
-            services.AddScoped<IDepartamentRepository, DepartmentRepository>();
+            //services.AddScoped<IDepartamentRepository, DepartmentRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
             services.AddControllers();

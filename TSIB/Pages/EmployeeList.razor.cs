@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TSIB.Model;
+using TSIB.Api.Models;
 
 namespace TSIB.Pages
 {

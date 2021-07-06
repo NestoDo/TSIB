@@ -1,8 +1,0 @@
-C:\Users\omare\source\repos\TSIB\TSIB.Model\obj\Debug\netstandard2.0\TSIB.Model.AssemblyInfoInputs.cache
-C:\Users\omare\source\repos\TSIB\TSIB.Model\obj\Debug\netstandard2.0\TSIB.Model.AssemblyInfo.cs
-C:\Users\omare\source\repos\TSIB\TSIB.Model\obj\Debug\netstandard2.0\TSIB.Model.csproj.CoreCompileInputs.cache
-C:\Users\omare\source\repos\TSIB\TSIB.Model\bin\Debug\netstandard2.0\TSIB.Model.deps.json
-C:\Users\omare\source\repos\TSIB\TSIB.Model\bin\Debug\netstandard2.0\TSIB.Model.dll
-C:\Users\omare\source\repos\TSIB\TSIB.Model\bin\Debug\netstandard2.0\TSIB.Model.pdb
-C:\Users\omare\source\repos\TSIB\TSIB.Model\obj\Debug\netstandard2.0\TSIB.Model.dll
-C:\Users\omare\source\repos\TSIB\TSIB.Model\obj\Debug\netstandard2.0\TSIB.Model.pdb

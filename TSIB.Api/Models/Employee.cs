@@ -1,9 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace TSIB.Model
+#nullable disable
+
+namespace TSIB.Api.Models
 {
-    public class Employee
+    public partial class Employee
     {
+        public Employee()
+        {
+            Attendances = new HashSet<Attendance>();
+        }
+
         public int EmployeeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -15,5 +23,8 @@ namespace TSIB.Model
         public int UpdatedUser { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
-	}
+
+        public virtual Department Department { get; set; }
+        public virtual ICollection<Attendance> Attendances { get; set; }
+    }
 }

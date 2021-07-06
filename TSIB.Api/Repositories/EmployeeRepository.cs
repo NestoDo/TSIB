@@ -1,11 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Dapper;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using TSIB.Model;
+using TSIB.Api.Models;
 
-namespace TSIB.Api.Models
+namespace TSIB.Api.Repositories
 {
     public class EmployeeRepository : IEmployeeRepository
     {
@@ -31,7 +34,23 @@ namespace TSIB.Api.Models
 
         public async Task<IEnumerable<Employee>> GetEmployees()
         {
-            return await _appDbContext.Employees.ToListAsync();
+            using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
+            {
+                con.Open();
+
+                var result  = await con.QueryAsync<Employee, Department, Employee>(
+                    "GetEmployees",
+                    (e, d) =>
+                    {
+                        e.Department = d;
+                        return e;
+                    },
+                    splitOn: "DepartmentId",
+                    commandType: CommandType.StoredProcedure);
+
+                return result.ToList();
+            }
+
         }
 
         public async Task<Employee> UpdateEmployee(Employee employee)
@@ -67,6 +86,6 @@ namespace TSIB.Api.Models
                 _appDbContext.Employees.Remove(result);
                 await _appDbContext.SaveChangesAsync();
             }
-        }       
+        }
     }
 }
