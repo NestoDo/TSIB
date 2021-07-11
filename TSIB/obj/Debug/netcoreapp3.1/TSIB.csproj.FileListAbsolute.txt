@@ -60,7 +60,6 @@ C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\Microsoft.Extensio
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
-C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\TSIB.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\TSIB.Api.exe
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll

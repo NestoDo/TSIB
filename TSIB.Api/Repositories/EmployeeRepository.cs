@@ -21,9 +21,39 @@ namespace TSIB.Api.Repositories
 
         public async Task<Employee> AddEmployee(Employee employee)
         {
-            var result = await _appDbContext.Employees.AddAsync(employee);
-            await _appDbContext.SaveChangesAsync();
-            return result.Entity;
+            //var result = await _appDbContext.Employees.AddAsync(employee);
+            //await _appDbContext.SaveChangesAsync();
+            //return result.Entity;
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@FirstName", employee.FirstName);
+            parameters.Add("@LastName", employee.LastName);
+            parameters.Add("@Phone", employee.Phone);
+            parameters.Add("@Address", employee.Address);
+            parameters.Add("@DepartmentId", employee.DepartmentId);
+            parameters.Add("@IsActive", true);
+            parameters.Add("@CreatedUser", 1);
+            parameters.Add("@UpdatedUser", 1);
+            parameters.Add("@UpdatedDate", DateTime.Now);
+            parameters.Add("@CreatedDate", DateTime.Now);
+
+            using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
+            {
+                con.Open();
+
+                var result = await con.QueryAsync<Employee, Department, Employee>(
+                    sql: "AddEmployees",
+                    map: (e, d) =>
+                    {
+                        e.Department = d;
+                        return e;
+                    },
+                    param: parameters,
+                    splitOn: "DepartmentId",                    
+                    commandType: CommandType.StoredProcedure);
+
+                return result.FirstOrDefault();
+            }
         }
 
 
@@ -50,7 +80,6 @@ namespace TSIB.Api.Repositories
 
                 return result.ToList();
             }
-
         }
 
         public async Task<Employee> UpdateEmployee(Employee employee)
