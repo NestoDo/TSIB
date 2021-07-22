@@ -8,11 +8,10 @@ namespace TSIB.Api.Repositories
 {
     public interface IEmployeeRepository
     {
-        Task<IEnumerable<Employee>> GetEmployees();
-        Task<Employee> GetEmployee(int employeeId);
+        Task<IEnumerable<Employee>> GetEmployees(int employeeId, string firstName, string lastName);
         Task<Employee> AddEmployee(Employee employee);
         Task<Employee> UpdateEmployee(Employee employee);
-        void DeleteEmployee(int employeeId);
+        //void DeleteEmployee(int employeeId);
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -13,10 +14,17 @@ namespace TSIB.Api.Models
         }
 
         public int EmployeeId { get; set; }
+        [Required]
+        [MinLength(1)]
+        [MaxLength(50)]
         public string FirstName { get; set; }
+        [Required]
+        [MinLength(1)]
+        [MaxLength(50)]
         public string LastName { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
+        [Required]
         public int DepartmentId { get; set; }
         public bool IsActive { get; set; }
         public int CreatedUser { get; set; }

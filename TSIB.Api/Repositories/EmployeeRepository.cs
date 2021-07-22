@@ -21,10 +21,6 @@ namespace TSIB.Api.Repositories
 
         public async Task<Employee> AddEmployee(Employee employee)
         {
-            //var result = await _appDbContext.Employees.AddAsync(employee);
-            //await _appDbContext.SaveChangesAsync();
-            //return result.Entity;
-
             var parameters = new DynamicParameters();
             parameters.Add("@FirstName", employee.FirstName);
             parameters.Add("@LastName", employee.LastName);
@@ -34,8 +30,8 @@ namespace TSIB.Api.Repositories
             parameters.Add("@IsActive", true);
             parameters.Add("@CreatedUser", 1);
             parameters.Add("@UpdatedUser", 1);
-            parameters.Add("@UpdatedDate", DateTime.Now);
             parameters.Add("@CreatedDate", DateTime.Now);
+            parameters.Add("@UpdatedDate", DateTime.Now);
 
             using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
             {
@@ -49,24 +45,22 @@ namespace TSIB.Api.Repositories
                         return e;
                     },
                     param: parameters,
-                    splitOn: "DepartmentId",                    
+                    splitOn: "DepartmentId",
                     commandType: CommandType.StoredProcedure);
 
                 return result.FirstOrDefault();
             }
         }
 
-
-        public async Task<Employee> GetEmployee(int employeeId)
-        {
-            return await _appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
-        }
-
-        public async Task<IEnumerable<Employee>> GetEmployees()
+        public async Task<IEnumerable<Employee>> GetEmployees(int employeeId, string firstName, string lastName)
         {
             using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
             {
                 con.Open();
+                var parameters = new DynamicParameters();
+                parameters.Add("@EmployeeId", employeeId);
+                parameters.Add("@FirstName", firstName);
+                parameters.Add("@LastName", lastName);
 
                 var result  = await con.QueryAsync<Employee, Department, Employee>(
                     "GetEmployees",
@@ -84,37 +78,46 @@ namespace TSIB.Api.Repositories
 
         public async Task<Employee> UpdateEmployee(Employee employee)
         {
-            var result = await _appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employee.EmployeeId);
 
-            if (result != null)
+            var parameters = new DynamicParameters();
+            parameters.Add("@EmployeeId", employee.EmployeeId);
+            parameters.Add("@FirstName", employee.FirstName);
+            parameters.Add("@LastName", employee.LastName);
+            parameters.Add("@Phone", employee.Phone);
+            parameters.Add("@Address", employee.Address);
+            parameters.Add("@DepartmentId", employee.DepartmentId);
+            parameters.Add("@IsActive", employee.IsActive);
+            parameters.Add("@UpdatedUser", 1);
+            parameters.Add("@UpdatedDate", DateTime.Now);
+
+            using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
             {
-                result.EmployeeId = employee.EmployeeId;
-                result.FirstName = employee.FirstName;
-                result.LastName = employee.LastName;
-                result.Phone = employee.Phone;
-                result.Address = employee.Address;
-                result.DepartmentId = employee.DepartmentId;
-                result.IsActive = employee.IsActive;
-                result.UpdatedUser = employee.UpdatedUser;
-                result.UpdatedDate = DateTime.Now;
+                con.Open();
 
-                await _appDbContext.SaveChangesAsync();
+                var result = await con.QueryAsync<Employee, Department, Employee>(
+                    sql: "UpdateEmployees",
+                    map: (e, d) =>
+                    {
+                        e.Department = d;
+                        return e;
+                    },
+                    param: parameters,
+                    splitOn: "DepartmentId",
+                    commandType: CommandType.StoredProcedure);
 
-                return result;
-            }
-
-            return null;
-        }
-
-        public async void DeleteEmployee(int employeeId)
-        {
-            var result = await _appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
-
-            if (result != null)
-            {
-                _appDbContext.Employees.Remove(result);
-                await _appDbContext.SaveChangesAsync();
+                return result.FirstOrDefault();
             }
         }
+
+        //public async void DeleteEmployee(int employeeId)
+        //{
+        //    var result = await _appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
+
+        //    if (result != null)
+        //    {
+        //        _appDbContext.Employees.Remove(result);
+        //        await _appDbContext.SaveChangesAsync();
+        //    }
+        //}
     }
 }

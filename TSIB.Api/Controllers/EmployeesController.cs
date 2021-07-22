@@ -18,11 +18,11 @@ namespace TSIB.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetEmployees()
+        public async Task<ActionResult> GetEmployees(int employeeId, string FirstName, string LastName)
         {
             try
             {
-                return Ok(await _employeeRepository.GetEmployees());
+                return Ok(await _employeeRepository.GetEmployees(employeeId, FirstName, LastName));
             }
             catch (Exception ex)
             {
@@ -31,26 +31,26 @@ namespace TSIB.Api.Controllers
             }
         }
 
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult<Employee>> GetEmployee(int id)
-        {
-            try
-            {
-                var result = await _employeeRepository.GetEmployee(id);
+        //[HttpGet("{id:int}")]
+        //public async Task<ActionResult<Employee>> GetEmployee(int id)
+        //{
+        //    try
+        //    {
+        //        var result = await _employeeRepository.GetEmployee(id);
 
-                if (result == null)
-                {
-                    return NotFound();
-                }
+        //        if (result == null)
+        //        {
+        //            return NotFound();
+        //        }
 
-                return result;
-            }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
+        //        return result;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(StatusCodes.Status500InternalServerError, $"Error retrieving data from the database { ex.Message} {ex.InnerException}");
 
-            }
-        }
+        //    }
+        //}
 
         [HttpPost]
         public async Task<ActionResult<Employee>> CreateEmployee(Employee employee)
@@ -64,11 +64,28 @@ namespace TSIB.Api.Controllers
 
                 var createdEmployee = await _employeeRepository.AddEmployee(employee);
 
+                //return CreatedAtAction(nameof(GetEmployee), new { id = createdEmployee.EmployeeId }, createdEmployee);
                 return createdEmployee;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error retrieving data from the database { ex.Message} {ex.InnerException}");
+            }
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<Employee>> UpdateEmployee(Employee employee)
+        {
+            try
+            {
+                var updatedEmployee = await _employeeRepository.UpdateEmployee(employee);
+
+                return updatedEmployee;
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error updating data {ex.Message} {ex.InnerException}");
+                
             }
         }
 
