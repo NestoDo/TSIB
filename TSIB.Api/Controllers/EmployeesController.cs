@@ -17,7 +17,7 @@ namespace TSIB.Api.Controllers
             _employeeRepository = employeeRepository;
         }
 
-        [HttpGet]
+        [HttpGet("{search}")]
         public async Task<ActionResult> GetEmployees(int employeeId, string FirstName, string LastName)
         {
             try
@@ -31,27 +31,6 @@ namespace TSIB.Api.Controllers
             }
         }
 
-        //[HttpGet("{id:int}")]
-        //public async Task<ActionResult<Employee>> GetEmployee(int id)
-        //{
-        //    try
-        //    {
-        //        var result = await _employeeRepository.GetEmployee(id);
-
-        //        if (result == null)
-        //        {
-        //            return NotFound();
-        //        }
-
-        //        return result;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(StatusCodes.Status500InternalServerError, $"Error retrieving data from the database { ex.Message} {ex.InnerException}");
-
-        //    }
-        //}
-
         [HttpPost]
         public async Task<ActionResult<Employee>> CreateEmployee(Employee employee)
         {
@@ -64,7 +43,6 @@ namespace TSIB.Api.Controllers
 
                 var createdEmployee = await _employeeRepository.AddEmployee(employee);
 
-                //return CreatedAtAction(nameof(GetEmployee), new { id = createdEmployee.EmployeeId }, createdEmployee);
                 return createdEmployee;
             }
             catch (Exception ex)

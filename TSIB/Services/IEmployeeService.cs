@@ -8,6 +8,6 @@ namespace TSIB.Services
 {
     public interface IEmployeeService
     {
-        Task<IEnumerable<Employee>> GetEmployees();
+        Task<IEnumerable<Employee>> GetEmployees(string search);
     }
 }

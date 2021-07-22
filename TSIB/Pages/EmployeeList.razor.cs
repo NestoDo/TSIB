@@ -17,7 +17,9 @@ namespace TSIB.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            Employees = (await EmployeeService.GetEmployees()).ToList();
+            string search = string.Empty;
+
+            Employees = (await EmployeeService.GetEmployees(search)).ToList();
         }
     }
 }

@@ -69,6 +69,7 @@ namespace TSIB.Api.Repositories
                         e.Department = d;
                         return e;
                     },
+                    param: parameters,
                     splitOn: "DepartmentId",
                     commandType: CommandType.StoredProcedure);
 
@@ -108,16 +109,5 @@ namespace TSIB.Api.Repositories
                 return result.FirstOrDefault();
             }
         }
-
-        //public async void DeleteEmployee(int employeeId)
-        //{
-        //    var result = await _appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
-
-        //    if (result != null)
-        //    {
-        //        _appDbContext.Employees.Remove(result);
-        //        await _appDbContext.SaveChangesAsync();
-        //    }
-        //}
     }
 }

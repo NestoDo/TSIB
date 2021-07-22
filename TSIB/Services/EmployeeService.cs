@@ -17,9 +17,9 @@ namespace TSIB.Services
             this.httpClient = httpClient;
         }
 
-        public async Task<IEnumerable<Employee>> GetEmployees()
+        public async Task<IEnumerable<Employee>> GetEmployees(string search)
         {
-            return await httpClient.GetJsonAsync<Employee[]>("api/employees");
+            return await httpClient.GetJsonAsync<Employee[]>($"api/employees/search?{search}");
         }
     }
 }
