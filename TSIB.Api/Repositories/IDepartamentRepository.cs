@@ -6,9 +6,8 @@ using TSIB.Api.Models;
 
 namespace TSIB.Api.Repositories
 {
-    public interface IDepartamentRepository
+    public interface IDepartmentRepository
     {
-        Task<IEnumerable<Department>> GetDepartments();
-        Task<Department> GetDepartment(int departmentId);
+        Task<IEnumerable<Department>> GetDepartments(int deparmentId);
     }
 }

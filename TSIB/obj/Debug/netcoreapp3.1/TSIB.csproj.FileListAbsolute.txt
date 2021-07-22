@@ -93,3 +93,5 @@ C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\TSIB.MvcApplicatio
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Blazor.HttpClient.dll
 C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\EmployeeDetails.razor.g.cs
 C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\Razor\Pages\EmployeeDetails.razor.g.cs
+C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\EmployeeEdit.razor.g.cs
+C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\Razor\Pages\EmployeeEdit.razor.g.cs

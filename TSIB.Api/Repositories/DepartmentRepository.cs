@@ -1,28 +1,38 @@
-﻿//using Microsoft.EntityFrameworkCore;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
-//using TSIB.Api.Models;
+﻿using Dapper;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+using TSIB.Api.Models;
 
-//namespace TSIB.Api.Repositories
-//{
-//    public class DepartmentRepository : IDepartamentRepository
-//    {
-//        private readonly AppDbContext _appDbContext;
-//        public DepartmentRepository(AppDbContext appDbContext)
-//        {
-//            _appDbContext = appDbContext;
-//        }
+namespace TSIB.Api.Repositories
+{
+    public class DepartmentRepository : IDepartmentRepository
+    {
+        private readonly AppDbContext _appDbContext;
+        public DepartmentRepository(AppDbContext appDbContext)
+        {
+            _appDbContext = appDbContext;
+        }
 
-//        public async Task<Department> GetDepartment(int departmentId)
-//        {
-//            return await _appDbContext.Departments.FirstOrDefaultAsync(e => e.DepartmentId == departmentId);
-//        }
+        public async Task<IEnumerable<Department>> GetDepartments(int deparmentId)
+        {
+            using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
+            {
+                con.Open();
+                var parameters = new DynamicParameters();
+                parameters.Add("@DepartmentId", deparmentId);
 
-//        public async Task<IEnumerable<Department>> GetDepartments()
-//        {
-//            return await _appDbContext.Departments.ToListAsync();
-//        }
-//    }
-//}
+                var result = await con.QueryAsync<Department>(
+                    "GetDepartments",                   
+                    param: parameters,
+                    commandType: CommandType.StoredProcedure);
+
+                return result.ToList();
+            }
+        }
+    }
+}
