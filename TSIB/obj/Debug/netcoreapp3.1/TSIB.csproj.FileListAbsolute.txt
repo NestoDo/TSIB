@@ -90,3 +90,4 @@ C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\TSIB.Api.dll
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\TSIB.Api.pdb
 C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\Dapper.dll
 C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\TSIB.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\omare\source\repos\TSIB\TSIB\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Blazor.HttpClient.dll

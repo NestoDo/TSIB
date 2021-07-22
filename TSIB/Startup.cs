@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TSIB.Services;
 
 namespace TSIB
 {
@@ -28,6 +29,10 @@ namespace TSIB
         {            
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddHttpClient<IEmployeeService, EmployeeService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44345/");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
