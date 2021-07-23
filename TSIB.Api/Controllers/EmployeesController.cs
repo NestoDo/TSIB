@@ -18,11 +18,11 @@ namespace TSIB.Api.Controllers
         }
 
         [HttpGet("{search}")]
-        public async Task<ActionResult> GetEmployees(int employeeId, string FirstName, string LastName)
+        public async Task<ActionResult> GetEmployees(int employeeId, string firstName, string lastName, bool? isActive = null)
         {
             try
             {
-                return Ok(await _employeeRepository.GetEmployees(employeeId, FirstName, LastName));
+                return Ok(await _employeeRepository.GetEmployees(employeeId, firstName, lastName, isActive));
             }
             catch (Exception ex)
             {

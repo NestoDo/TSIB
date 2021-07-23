@@ -17,10 +17,16 @@ namespace TSIB.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            string search = string.Empty;
+            string search = $"IsActive={SearchIsActive}";
 
             Employees = (await EmployeeService.GetEmployees(search)).ToList();
         }
+
+        #region  Search
+        public string SearchFirstName { get; set; } = string.Empty;
+        public string SearchLastName { get; set; } = string.Empty;
+        public string SearchIsActive { get; set; } = "true";
+        #endregion
 
         private async void ChangeStatus_Click(Employee employee)
         {
@@ -31,7 +37,30 @@ namespace TSIB.Pages
             {
                 result = await EmployeeService.UpdateEmployee(employee);
             }
-            //NavigationManager.NavigateTo("employeeedit", true);
+        }
+
+        private  async Task EmployeeSearch_Click()
+        {
+            string search = "default=default";
+
+            if (SearchIsActive != "todo")
+            {
+                search += $"&IsActive={SearchIsActive}";
+            }
+
+            if (!string.IsNullOrEmpty(SearchFirstName))
+            {
+                search += $"&FirstName={SearchFirstName}";
+            }
+
+            if (!string.IsNullOrEmpty(SearchLastName))
+            {
+                search += $"&LastName={SearchLastName}";
+            }
+
+
+            Employees = (await EmployeeService.GetEmployees(search)).ToList();
+
         }
     }
 }

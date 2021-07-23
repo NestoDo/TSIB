@@ -52,7 +52,7 @@ namespace TSIB.Api.Repositories
             }
         }
 
-        public async Task<IEnumerable<Employee>> GetEmployees(int employeeId, string firstName, string lastName)
+        public async Task<IEnumerable<Employee>> GetEmployees(int employeeId, string firstName, string lastName, bool? isActive)
         {
             using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
             {
@@ -61,6 +61,7 @@ namespace TSIB.Api.Repositories
                 parameters.Add("@EmployeeId", employeeId);
                 parameters.Add("@FirstName", firstName);
                 parameters.Add("@LastName", lastName);
+                parameters.Add("@IsActive", isActive);
 
                 var result  = await con.QueryAsync<Employee, Department, Employee>(
                     "GetEmployees",
