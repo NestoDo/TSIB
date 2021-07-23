@@ -29,5 +29,10 @@ namespace TSIB.Pages
             Employee = (await EmployeeService.GetEmployees(searchEmployees)).FirstOrDefault();
             Departments = (await DepartmentService.GetDepartments(searchDepartments)).ToList();
         }
+
+        protected void HandleValidSubmit()
+        {
+            EmployeeService.UpdateEmployee(Employee);
+        }
     }
 }

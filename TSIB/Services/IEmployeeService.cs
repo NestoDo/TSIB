@@ -9,5 +9,6 @@ namespace TSIB.Services
     public interface IEmployeeService
     {
         Task<IEnumerable<Employee>> GetEmployees(string search);
+        Task<Employee> UpdateEmployee(Employee employee);
     }
 }

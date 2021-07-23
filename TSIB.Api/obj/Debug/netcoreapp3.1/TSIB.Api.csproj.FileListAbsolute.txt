@@ -61,3 +61,4 @@ C:\Users\omare\source\repos\TSIB\TSIB.Api\bin\Debug\netcoreapp3.1\runtimes\win\l
 C:\Users\omare\source\repos\TSIB\TSIB.Api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\omare\source\repos\TSIB\TSIB.Api\obj\Debug\netcoreapp3.1\TSIB.Api.csproj.CopyComplete
 C:\Users\omare\source\repos\TSIB\TSIB.Api\bin\Debug\netcoreapp3.1\Dapper.dll
+C:\Users\omare\source\repos\TSIB\TSIB.Api\obj\Debug\netcoreapp3.1\TSIB.Api.csprojAssemblyReference.cache
