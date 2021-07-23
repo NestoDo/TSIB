@@ -10,5 +10,6 @@ namespace TSIB.Services
     {
         Task<IEnumerable<Employee>> GetEmployees(string search);
         Task<Employee> UpdateEmployee(Employee employee);
+        Task<Employee> CreateEmployee(Employee employee);
     }
 }

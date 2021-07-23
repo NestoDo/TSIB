@@ -76,6 +76,7 @@ using TSIB.Shared;
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/employeeedit/{employeeId}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/employeeedit")]
     public partial class EmployeeEdit : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998

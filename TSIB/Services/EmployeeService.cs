@@ -26,5 +26,10 @@ namespace TSIB.Services
         {
             return await httpClient.PutJsonAsync<Employee>($"api/employees", employee);
         }
+
+        public async Task<Employee> CreateEmployee(Employee employee)
+        {
+            return await httpClient.PostJsonAsync<Employee>($"api/employees", employee);
+        }
     }
 }
