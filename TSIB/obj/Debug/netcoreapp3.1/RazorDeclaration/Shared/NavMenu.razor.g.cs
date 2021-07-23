@@ -83,8 +83,8 @@ using TSIB.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\omare\source\repos\TSIB\TSIB\Shared\NavMenu.razor"
-       
+#line 30 "C:\Users\omare\source\repos\TSIB\TSIB\Shared\NavMenu.razor"
+
     private bool collapseNavMenu = true;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
@@ -94,9 +94,15 @@ using TSIB.Shared;
         collapseNavMenu = !collapseNavMenu;
     }
 
+    private void HandleClick()
+    {
+        NavigationManager.NavigateTo("employeeedit", true);
+    }
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

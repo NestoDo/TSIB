@@ -10,6 +10,8 @@ namespace TSIB.Pages
 {
     public partial class EmployeeEdit
     {
+        public string PageHeaderText { get; set; }
+
         [Inject]
         public IEmployeeService EmployeeService { get; set; }        
         public Employee Employee { get; set; } = new Employee();
@@ -30,11 +32,13 @@ namespace TSIB.Pages
 
             if (employeeId != 0)
             {
+                PageHeaderText = "Editar Empleado";
                 string searchEmployees = $"EmployeeId={EmployeeId}";
                 Employee = (await EmployeeService.GetEmployees(searchEmployees)).FirstOrDefault();
             }
             else
             {
+                PageHeaderText = "Agregar Empleado";
                 Employee = new Employee
                 {
                     DepartmentId = 1,
