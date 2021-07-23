@@ -94,10 +94,10 @@ using TSIB.Shared;
         collapseNavMenu = !collapseNavMenu;
     }
 
-    private void HandleClick()
-    {
-        NavigationManager.NavigateTo("employeeedit", true);
-    }
+    //private void HandleClick()
+    //{
+    //    NavigationManager.NavigateTo("employeeedit", true);
+    //}
 
 #line default
 #line hidden
