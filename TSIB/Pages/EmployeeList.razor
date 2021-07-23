@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<h3>EmployeeList</h3>
+<h3>Empleados</h3>
 
 @if (Employees == null)
 {
@@ -8,7 +8,7 @@
 }
 else
 {
-    <div class="card-deck">
+    @*<div class="card-deck">
         @foreach (var employee in Employees)
         {
             <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
@@ -26,4 +26,44 @@ else
             </div>
         }
     </div>
+
+    <br />*@
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Departamento</th>
+                <th scope="col">Estatus</th>
+                @*<th scope="col"></th>*@
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Employees)
+            {
+            <tr>
+                <th scope="row">@employee.EmployeeId</th>
+                <td>@employee.FirstName</td>
+                <td>@employee.LastName</td>
+                <td>@employee.Phone</td>
+                <td>@employee.Department.LongDesc</td>
+                @if (@employee.IsActive)
+                {
+                    <td><button class="btn btn-primary" @onclick="(() => ChangeStatus_Click(employee))">Activo</button></td>
+                }
+                else
+                {
+                    <td><button class="btn btn-danger" @onclick="(() => ChangeStatus_Click(employee))">Inactivo</button></td>
+                }
+
+                <td>@*<a href="@($"/employeedetails/{employee.EmployeeId}")" class="btn btn-primary m-1">Ver</a>*@</td>
+                <td><a href="@($"/employeeedit/{employee.EmployeeId}")" class="btn btn-primary m-1">Editar</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
 }

@@ -21,5 +21,17 @@ namespace TSIB.Pages
 
             Employees = (await EmployeeService.GetEmployees(search)).ToList();
         }
+
+        private async void ChangeStatus_Click(Employee employee)
+        {
+            Employee result = null;
+            employee.IsActive = !employee.IsActive;
+
+            if (employee.EmployeeId != 0)
+            {
+                result = await EmployeeService.UpdateEmployee(employee);
+            }
+            //NavigationManager.NavigateTo("employeeedit", true);
+        }
     }
 }
