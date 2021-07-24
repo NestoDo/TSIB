@@ -13,7 +13,7 @@ namespace TSIB.Pages
     public class AttendanceViewModel
     {
         public int EmployeeId { get; set; }
-
+        public string EmployeeName { get; set; }
         public Dictionary<int, string> Attendance { get; set; }
     }
 
@@ -42,11 +42,38 @@ namespace TSIB.Pages
 
             this.Days = days;
 
-            //string search = search = $"IsActive=true";
-            //Employees = (await EmployeeService.GetEmployees(search)).ToList();            
+            string search = search = $"IsActive=true";
+            Employees = (await EmployeeService.GetEmployees(search)).ToList();
 
-            string search = $"employeeId=24&year={year}&month={month}";
+            search = $"employeeId=24&year={year}&month={month}";
             Attendances = (await AttendanceService.GetAttendance(search)).ToList();
+
+            List <AttendanceViewModel> avml= new List<AttendanceViewModel>();
+            AttendanceViewModel avm = new AttendanceViewModel();
+            foreach (var attendance in Attendances)
+            {
+                avm = new AttendanceViewModel();
+                avm.EmployeeId = attendance.EmployeeId;
+                avm.EmployeeName = $"{attendance.FirstName} {attendance.LastName}";
+
+                Dictionary<int, string> attend = new Dictionary<int, string>();
+                for (int i = 1; i <= this.Days; i++)
+                {
+                    attend.Add(i, "");
+                }
+
+                if (attendance.Attendances.Count > 0)
+                {
+                    foreach (var item in attendance.Attendances)
+                    {
+                        attend[item.Date.Day] = item.AttendanceType.ShortDescription;
+                    }
+                }
+
+                avm.Attendance = attend;
+
+                avml.Add(avm);
+            }
 
             //List<AttendanceViewModel> avml = new List<AttendanceViewModel>();
             //AttendanceViewModel avm = null;
@@ -67,7 +94,7 @@ namespace TSIB.Pages
             this.Days = days;
         }
 
-        private async void SaveAttenndace_Click(Employee employee, int year, int month, int day)
+        private void SaveAttenndace_Click(Employee employee, int year, int month, int day)
         {
             DateTime dateAttendance = new DateTime(year, month, day);
 

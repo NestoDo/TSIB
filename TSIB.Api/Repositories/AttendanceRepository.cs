@@ -19,7 +19,6 @@ namespace TSIB.Api.Repositories
         }
         public async Task<IEnumerable<Employee>> GetAttendance(int employeeId, int year, int month)
         {
-
             var lookup = new Dictionary<int, Employee>();
 
             using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
