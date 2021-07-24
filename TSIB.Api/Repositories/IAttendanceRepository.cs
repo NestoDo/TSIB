@@ -8,7 +8,7 @@ namespace TSIB.Api.Repositories
 {
     public interface IAttendanceRepository
     {
-        Task<IEnumerable<Attendance>> GetAttendance(int employeeId, int year, int month);
+        Task<IEnumerable<Employee>> GetAttendance(int employeeId, int year, int month);
         //Task<Attendance> UpdateAttendance(Attendance attendance);
     }
 }

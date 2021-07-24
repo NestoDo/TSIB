@@ -17,8 +17,11 @@ namespace TSIB.Api.Repositories
         {
             _appDbContext = appDbContext;
         }
-        public async Task<IEnumerable<Attendance>> GetAttendance(int employeeId, int year, int month)
+        public async Task<IEnumerable<Employee>> GetAttendance(int employeeId, int year, int month)
         {
+
+            var lookup = new Dictionary<int, Employee>();
+
             using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
             {
                 con.Open();
@@ -27,18 +30,29 @@ namespace TSIB.Api.Repositories
                 parameters.Add("@Year", year);
                 parameters.Add("@Month", month);
 
-                var result  = await con.QueryAsync<Attendance, AttendanceType, Attendance>(
+                var result  = await con.QueryAsync<Employee, Attendance, AttendanceType, Employee>(
                     "GetAttendance",
-                    (e, d) =>
+                    (a, b, c) =>
                     {
-                        e.AttendanceType = d;
-                        return e;
+                        Employee employee;
+                        if (!lookup.TryGetValue(a.EmployeeId, out employee))
+                            lookup.Add(a.EmployeeId, employee = a);
+                        if (employee.Attendances == null)
+                            employee.Attendances = new List<Attendance>();
+
+                        if (b != null)
+                        {
+                            b.AttendanceType = c;
+                            employee.Attendances.Add(b);
+                        }
+                        
+                        return employee;
                     },
                     param: parameters,
-                    splitOn: "AttendanceTypeId",
+                    splitOn: "AttendanceId,AttendanceTypeId",
                     commandType: CommandType.StoredProcedure);
 
-                return result.ToList();
+                return lookup.Values;
             }
         }
 

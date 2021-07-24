@@ -17,10 +17,10 @@ namespace TSIB.Services
             this.httpClient = httpClient;
         }
 
-        public async Task<IEnumerable<Attendance>> GetAttendance(string search)
+        public async Task<IEnumerable<Employee>> GetAttendance(string search)
         {
 
-            return await httpClient.GetJsonAsync<Attendance[]>($"api/attendance/search?{search}");
+            return await httpClient.GetJsonAsync<Employee[]>($"api/attendance/search?{search}");
         }
 
         //public async Task<Attendance> UpdateAttendance(Attendance employee)
