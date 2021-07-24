@@ -23,9 +23,9 @@ namespace TSIB.Services
             return await httpClient.GetJsonAsync<Employee[]>($"api/attendance/search?{search}");
         }
 
-        //public async Task<Attendance> UpdateAttendance(Attendance employee)
-        //{
-        //    return await httpClient.PutJsonAsync<Attendance>($"api/attendance", employee);
-        //}
+        public async Task<Attendance> UpdateAttendance(TSIB.Api.Models.Attendance attendance)
+        {
+            return await httpClient.PutJsonAsync<Attendance>($"api/attendance", attendance);
+        }
     }
 }

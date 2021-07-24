@@ -14,7 +14,7 @@ namespace TSIB.Pages
     {
         public int EmployeeId { get; set; }
         public string EmployeeName { get; set; }
-        public Dictionary<int, string> Attendance { get; set; }
+        public string[] Attendance { get; set; }
     }
 
     public partial class Attendance
@@ -56,10 +56,10 @@ namespace TSIB.Pages
                 avm.EmployeeId = attendance.EmployeeId;
                 avm.EmployeeName = $"{attendance.FirstName} {attendance.LastName}";
 
-                Dictionary<int, string> attend = new Dictionary<int, string>();
-                for (int i = 1; i <= this.Days; i++)
+                string [] attend = new  string[this.Days+1];
+                for (int i = 1; i < attend.Length; i++)
                 {
-                    attend.Add(i, "");
+                    attend[i] = "";
                 }
 
                 if (attendance.Attendances.Count > 0)
@@ -74,6 +74,8 @@ namespace TSIB.Pages
 
                 avml.Add(avm);
             }
+
+            AttendancesViewModel = avml;
 
             //List<AttendanceViewModel> avml = new List<AttendanceViewModel>();
             //AttendanceViewModel avm = null;
@@ -94,11 +96,19 @@ namespace TSIB.Pages
             this.Days = days;
         }
 
-        private void SaveAttenndace_Click(Employee employee, int year, int month, int day)
+        private void SaveAttenndace_Click(AttendanceViewModel attendanceView, int year, int month, int day)
         {
             DateTime dateAttendance = new DateTime(year, month, day);
 
-            //await AttendanceService.UpdateAttendance(employee, dateAttendance);
+            TSIB.Api.Models.Attendance attendance = new TSIB.Api.Models.Attendance()
+            {
+                EmployeeId = attendanceView.EmployeeId,
+                Date = dateAttendance,
+                AttendanceTypeId = 1
+
+            };
+
+            //await AttendanceService.UpdateAttendance(attendance);
         }
     }
 }

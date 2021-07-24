@@ -9,6 +9,6 @@ namespace TSIB.Services
     public interface IAttendanceService
     {
         Task<IEnumerable<Employee>> GetAttendance(string search);
-        //Task<Attendance> UpdateAttendance(Attendance employee);
+        Task<Attendance> UpdateAttendance(Attendance attendance);
     }
 }

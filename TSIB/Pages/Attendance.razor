@@ -55,24 +55,25 @@ else
                 @for (int i = 1; i <= Days; i++)
                 {
                     <th scope="col">
-                        @(new DateTime(Convert.ToInt32(Year), Convert.ToInt32(Month), i).DayOfWeek)
+                        @*@(new DateTime(Convert.ToInt32(Year), Convert.ToInt32(Month), i).DayOfWeek)*@
+                        Mierco
                     </th>
                 }
 
             </tr>
 
 
-            @foreach (var employee in Employees)
+            @foreach (var attendance in AttendancesViewModel)
             {
                 <tr>
-                    <th scope="row">@employee.FirstName</th>
+                    <th scope="row">@attendance.EmployeeName</th>
 
-                    @for (int i = 1; i <= Days; i++)
+                    @for (int i = 1; i < attendance.Attendance.Length; i++)
                     {
-                        var dayNumber = i;
 
+                        int iDay = i;
                         <td>
-                            <input type="text" class="form-control form-control-sm" @onclick="(() => SaveAttenndace_Click(employee, Convert.ToInt32(Year), Convert.ToInt32(Month), dayNumber))"/>
+                            <input type="text" class="form-control form-control-sm" @onblur="(() => SaveAttenndace_Click(attendance, Convert.ToInt32(Year), Convert.ToInt32(Month), iDay))" @bind-value="attendance.Attendance[iDay]" @bind-value:event="oninput"/>
                         </td>
                     }
                 </tr>

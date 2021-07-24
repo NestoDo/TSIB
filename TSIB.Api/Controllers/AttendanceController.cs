@@ -31,21 +31,21 @@ namespace TSIB.Api.Controllers
             }
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult<Employee>> UpdateAttendance(Employee employee, DateTime attendanceDate, int attendanceType)
-        //{
-        //    try
-        //    {
-        //        var updatedEmployee = await _attendanceRepository.UpdateAttendance(employee, attendanceDate, attendanceType);
+        [HttpPost]
+        public async Task<ActionResult<Attendance>> UpdateAttendance(Attendance attendance)
+        {
+            try
+            {
+                var updatedattendance = await _attendanceRepository.UpdateAttendance(attendance);
 
-        //        return updatedEmployee;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(StatusCodes.Status500InternalServerError, $"Error updating data {ex.Message} {ex.InnerException}");
-                
-        //    }
-        //}
+                return updatedattendance;
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error updating data {ex.Message} {ex.InnerException}");
+
+            }
+        }
 
     }
 }

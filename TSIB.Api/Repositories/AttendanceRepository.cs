@@ -55,37 +55,30 @@ namespace TSIB.Api.Repositories
             }
         }
 
-        //public async Task<Employee> UpdateEmployee(Employee employee)
-        //{
+        public async Task<Attendance> UpdateAttendance(Attendance attendance)
+        {
 
-        //    var parameters = new DynamicParameters();
-        //    parameters.Add("@EmployeeId", employee.EmployeeId);
-        //    parameters.Add("@FirstName", employee.FirstName);
-        //    parameters.Add("@LastName", employee.LastName);
-        //    parameters.Add("@Phone", employee.Phone);
-        //    parameters.Add("@Address", employee.Address);
-        //    parameters.Add("@DepartmentId", employee.DepartmentId);
-        //    parameters.Add("@IsActive", employee.IsActive);
-        //    parameters.Add("@UpdatedUser", 1);
-        //    parameters.Add("@UpdatedDate", DateTime.Now);
+            var parameters = new DynamicParameters();
+            parameters.Add("@EmployeeId", attendance.EmployeeId);
+            parameters.Add("@Date", attendance.Date);
+            parameters.Add("@AttendanceTypeId", attendance.AttendanceTypeId);
 
-        //    using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
-        //    {
-        //        con.Open();
+            using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
+            {
+                con.Open();
 
-        //        var result = await con.QueryAsync<Employee, Department, Employee>(
-        //            sql: "UpdateEmployees",
-        //            map: (e, d) =>
-        //            {
-        //                e.Department = d;
-        //                return e;
-        //            },
-        //            param: parameters,
-        //            splitOn: "DepartmentId",
-        //            commandType: CommandType.StoredProcedure);
+                var result = await con.QueryAsync<Attendance>(
+                    sql: "UpdateEmployees",
+                    //map: (e) =>
+                    //{
+                    //    return e;
+                    //},
+                    //param: parameters,
+                    //splitOn: "DepartmentId",
+                    commandType: CommandType.StoredProcedure);
 
-        //        return result.FirstOrDefault();
-        //    }
-        //}
+                return result.FirstOrDefault();
+            }
+        }
     }
 }
