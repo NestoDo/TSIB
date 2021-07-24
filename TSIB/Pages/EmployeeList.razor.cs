@@ -39,7 +39,7 @@ namespace TSIB.Pages
             }
         }
 
-        private  async Task EmployeeSearch_Click()
+        private async Task EmployeeSearch_Click()
         {
             string search = "default=default";
 

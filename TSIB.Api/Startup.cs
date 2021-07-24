@@ -33,6 +33,7 @@ namespace TSIB.Api
             //services.AddScoped<IDepartamentRepository, DepartmentRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IAttendanceRepository, AttendanceRepository>();
 
             services.AddControllers();
         }
