@@ -41,6 +41,10 @@ namespace TSIB
             {
                 client.BaseAddress = new Uri("https://localhost:44345/");
             });
+            services.AddHttpClient<IAttendanceTypeService, AttendanceTypeService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44345/");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

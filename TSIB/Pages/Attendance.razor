@@ -29,7 +29,7 @@
     <option value="2023">2023</option>
 </select>
 
-@if (Employees == null)
+@if (Employees == null || Attendances == null || AttendanceTypes == null)
 {
     <div class="spinner"></div>
 }
