@@ -25,7 +25,7 @@ namespace TSIB.Services
 
         public async Task<Attendance> UpdateAttendance(TSIB.Api.Models.Attendance attendance)
         {
-            return await httpClient.PutJsonAsync<Attendance>($"api/attendance", attendance);
+            return await httpClient.PostJsonAsync<Attendance>($"api/attendance", attendance);
         }
     }
 }

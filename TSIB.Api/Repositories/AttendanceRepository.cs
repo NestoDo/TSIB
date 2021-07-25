@@ -68,12 +68,12 @@ namespace TSIB.Api.Repositories
                 con.Open();
 
                 var result = await con.QueryAsync<Attendance>(
-                    sql: "UpdateEmployees",
+                    sql: "UpdateAttendance",
                     //map: (e) =>
                     //{
                     //    return e;
                     //},
-                    //param: parameters,
+                    param: parameters,
                     //splitOn: "DepartmentId",
                     commandType: CommandType.StoredProcedure);
 

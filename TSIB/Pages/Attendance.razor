@@ -73,7 +73,14 @@ else
 
                         int iDay = i;
                         <td>
-                            <input type="text" class="form-control form-control-sm" @onblur="(() => SaveAttenndace_Click(attendance, Convert.ToInt32(Year), Convert.ToInt32(Month), iDay))" @bind-value="attendance.Attendance[iDay]" @bind-value:event="oninput"/>
+                            @*<input type="text" class="form-control form-control-sm" @onblur="(() => SaveAttenndace_Click(attendance, Convert.ToInt32(Year), Convert.ToInt32(Month), iDay))" @bind-value="attendance.Attendance[iDay]" @bind-value:event="oninput" />*@
+
+                            <select class="form-control form-control-sm" name="AttendanceType" id="attendanceTypeId" @bind-value="attendance.Attendance[iDay]" @bind-value:event="oninput" @onchange="(() => SaveAttenndace_Click(attendance, Convert.ToInt32(Year), Convert.ToInt32(Month), iDay))">
+                                @foreach (var attendanceType in AttendanceTypes)
+                                {
+                                    <option value="@attendanceType.AttendanceTypeId">@attendanceType.ShortDescription</option>
+                                }
+                            </select>
                         </td>
                     }
                 </tr>

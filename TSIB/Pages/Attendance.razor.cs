@@ -14,7 +14,7 @@ namespace TSIB.Pages
     {
         public int EmployeeId { get; set; }
         public string EmployeeName { get; set; }
-        public string[] Attendance { get; set; }
+        public int[] Attendance { get; set; }
     }
 
     public partial class Attendance
@@ -62,17 +62,17 @@ namespace TSIB.Pages
                 avm.EmployeeId = attendance.EmployeeId;
                 avm.EmployeeName = $"{attendance.FirstName} {attendance.LastName}";
 
-                string [] attend = new  string[this.Days+1];
+                int [] attend = new int[this.Days+1];
                 for (int i = 1; i < attend.Length; i++)
                 {
-                    attend[i] = "";
+                    attend[i] = 0;
                 }
 
                 if (attendance.Attendances.Count > 0)
                 {
                     foreach (var item in attendance.Attendances)
                     {
-                        attend[item.Date.Day] = item.AttendanceType.ShortDescription;
+                        attend[item.Date.Day] = item.AttendanceType.AttendanceTypeId;
                     }
                 }
 
@@ -91,7 +91,7 @@ namespace TSIB.Pages
             this.Days = days;
         }
 
-        private void SaveAttenndace_Click(AttendanceViewModel attendanceView, int year, int month, int day)
+        private async void SaveAttenndace_Click(AttendanceViewModel attendanceView, int year, int month, int day)
         {
             DateTime dateAttendance = new DateTime(year, month, day);
 
@@ -99,11 +99,10 @@ namespace TSIB.Pages
             {
                 EmployeeId = attendanceView.EmployeeId,
                 Date = dateAttendance,
-                AttendanceTypeId = 1
-
+                AttendanceTypeId = attendanceView.Attendance[day]
             };
 
-            //await AttendanceService.UpdateAttendance(attendance);
+            await AttendanceService.UpdateAttendance(attendance);
         }
     }
 }
