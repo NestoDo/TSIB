@@ -75,6 +75,13 @@ using TSIB.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\omare\source\repos\TSIB\TSIB\Pages\Attendance.razor"
+using System.Globalization;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/attendance")]
     public partial class Attendance : Microsoft.AspNetCore.Components.ComponentBase
     {
