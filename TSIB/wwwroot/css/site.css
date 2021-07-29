@@ -209,39 +209,72 @@ app {
 }
 
 /*table fixed*/
-.table-fixed {
+/*.table-fixed th {
+    background-color: #f39c12;
+}*/
+
+/*.table-fixed {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-top: 1px solid grey;
+}*/
+
+    /*td, th {
+        margin: 0;*/
+        /*border: 1px solid grey;*/
+        /*white-space: nowrap;
+        border-top-width: 0px;
+    }*/
+
+.div-table-fixed {
     width: 100%;
-    background-color: #f3f3f3;
-    tbody
-    {
-        height: 200px;
-        overflow-y: auto;
-        width: 100%;
-    }
+    overflow-x: scroll;
+    overflow-y: visible;
+    padding: 0;
+}
 
-    thead, tbody, tr, td, th {
-        display: block;
-    }
+/*.headcol {
+    position: absolute;
+    width: 15em;
+    left: 0;
+    top: auto;
+    background-color:transparent;*/
+    /*border-top-width: 1px;*/
+    /*only relevant for first row*/
+    /*margin-top: -1px;*/
+    /*compensate for top border*/
+/*}
 
-    tbody {
-        td
-        {
-            float: left;
-        }
-    }
+.long {
+    background: yellow;
+    letter-spacing: 1em;
+}
 
-    thead {
-        tr
+option {*/
+    /* Whatever color  you want */
+    /*background-color: #82caff;
+}*/
 
-        {
-            th
+th:first-child, td:first-child {
+    position: sticky;
+    left: 0px;
+    
+}
 
-            {
-                float: left;
-                background-color: #f39c12;
-                border-color: #e67e22;
-            }
 
-        }
-    }
+
+.backGray {
+    background-color: #DCD5D3;
+}
+
+
+.table-responsive {
+    height: 400px;
+    overflow: scroll;
+}
+
+thead tr:nth-child(1) th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }

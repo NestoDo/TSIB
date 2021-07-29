@@ -93,59 +93,62 @@ else
 
         </div>
 
-        <div class="card-body">
-            <table class="table table-hover table-sm table-bordered table-fixed" style="overflow-y: scroll;">
-                <thead>
-                    <tr>
-                        <th scope="col" style="font-family: Arial, Helvetica, sans-serif; width:100px;">Nombre&nbsp;del&nbsp;Empleado</th>
+        <div class="card-header">
+            <div class="div-table-fixed">
+                <table class="table table-bordered table-hover table-fixed table-responsive">
+                    <thead>
+                        <tr class="topheader">
+                            <th scope="col" class="backGray">Nombre&nbsp;del&nbsp;Empleado</th>
 
-                        @for (int i = 1; i <= Days; i++)
-                        {
-                            <th scope="col">@i</th>
-                        }
+                            @for (int i = 1; i <= Days; i++)
+                            {
+                                <th scope="col" class="backGray">@i</th>
+                            }
 
-                    </tr>
-                </thead>
-                <tbody>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    <tr>
-                        <th scope="row"></th>
+                        <tr class="topheader">
+                            <td scope="row" class="backGray"></td>
 
-                        @for (int i = 1; i <= Days; i++)
-                        {
-                            <th scope="col">
-                                @(
+                            @for (int i = 1; i <= Days; i++)
+                            {
+                                <td class="backGray">
+                                    @(
                             new CultureInfo("Es-Es").DateTimeFormat.GetDayName(new DateTime(Convert.ToInt32(YearSearch), Convert.ToInt32(MonthSearch), i).DayOfWeek).Substring(0, 3)
                         )
-                            </th>
-                        }
-
-                    </tr>
-
-
-                    @foreach (var attendance in AttendancesViewModel)
-                    {
-                        <tr>
-                            <th scope="row" style="font-size: 13px; padding-bottom:0px; padding-top:0px;">@attendance.EmployeeName</th>
-
-                            @for (int i = 1; i < attendance.Attendance.Length; i++)
-                            {
-
-                                int iDay = i;
-                                <td style="padding-left:0; padding-right:0; padding-bottom:0px; padding-top:0px;">
-
-                                    <select style="width:50px; padding-left:0; padding-right:0; border-left:0; border-right:0;" class="form-control form-control-sm" name="AttendanceType" id="attendanceTypeId" @bind-value="attendance.Attendance[iDay]" @bind-value:event="oninput" @onchange="(() => SaveAttenndace_Click(attendance, Convert.ToInt32(Year), Convert.ToInt32(Month), iDay))">
-                                        @foreach (var attendanceType in AttendanceTypes)
-                                        {
-                                            <option value="@attendanceType.AttendanceTypeId">@attendanceType.ShortDescription</option>
-                                        }
-                                    </select>
                                 </td>
                             }
+
                         </tr>
-                    }
-                </tbody>
-            </table>
+
+
+                        @foreach (var attendance in AttendancesViewModel)
+                        {
+                            <tr>
+                                <td class="backGray" scope="row" style="font-size: 13px; padding-bottom:0px; padding-top:0px;">@attendance.EmployeeName</td>
+
+                                @for (int i = 1; i < attendance.Attendance.Length; i++)
+                                {
+
+                                    int iDay = i;
+                                    <td style="padding-left:0; padding-right:0; padding-bottom:0px; padding-top:0px;">
+
+                                        <select style="width:50px; padding-left:0; padding-right:0; border-left:0; border-right:0;" class="form-control form-control-sm" name="AttendanceType" id="attendanceTypeId" @bind-value="attendance.Attendance[iDay]" @bind-value:event="oninput" @onchange="(() => SaveAttenndace_Click(attendance, Convert.ToInt32(Year), Convert.ToInt32(Month), iDay))">
+                                            @foreach (var attendanceType in AttendanceTypes)
+                                            {
+                                                <option value="@attendanceType.AttendanceTypeId">@attendanceType.ShortDescription</option>
+                                            }
+                                        </select>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+
 }
