@@ -34,6 +34,9 @@ namespace TSIB.Pages
         public int EmployeeId { get; set; } = 0;
         public string Year { get; set; } = DateTime.Now.Year.ToString();
         public string Month { get; set; } = DateTime.Now.Month.ToString();
+
+        public int YearSearch { get; set; } = DateTime.Now.Year;
+        public int MonthSearch { get; set; } = DateTime.Now.Month;
         public int Days { get; set; } = 0;
 
         protected override async Task OnInitializedAsync()
@@ -60,19 +63,20 @@ namespace TSIB.Pages
             await AttendanceService.UpdateAttendance(attendance);
         }
 
+
         private async Task AttendanceSearch()
         {
-            int year = Convert.ToInt32(Year);
-            int month = Convert.ToInt32(Month);
+            YearSearch = Convert.ToInt32(Year);
+            MonthSearch = Convert.ToInt32(Month);
 
-            int days = DateTime.DaysInMonth(year, month);
+            int days = DateTime.DaysInMonth(YearSearch, MonthSearch);
 
             this.Days = days;
 
             string search = search = $"IsActive=true";            
             Employees = (await EmployeeService.GetEmployees(search)).ToList();
 
-            search = $"employeeId={EmployeeId}&year={year}&month={month}";
+            search = $"employeeId={EmployeeId}&year={YearSearch}&month={MonthSearch}";
             Attendances = (await AttendanceService.GetAttendance(search)).ToList();
 
             search = string.Empty;
