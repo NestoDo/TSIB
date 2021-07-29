@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<h3>Empleados</h3>
+<h4>Empleados</h4>
 
 <div class="card">
     <div class="card-header">
@@ -9,14 +9,14 @@
                 Nombre
             </label>
             <div class="col-sm-4">
-                <Input id="firstName" class="form-control form-control-sm" placeholder="Nombre" @bind-value="SearchFirstName" @bind-value:event="oninput"/>
+                <Input id="firstName" class="form-control form-control-sm" placeholder="Nombre" @bind-value="SearchFirstName" @bind-value:event="oninput" maxlength="50"/>
             </div>
 
             <label for="lastName" class="col-sm-2 col-form-label">
                 Apellido
             </label>
             <div class="col-sm-4">
-                <input id="lastName" class="form-control form-control-sm" placeholder="Apellido" @bind-value="SearchLastName" @bind-value:event="oninput"/>
+                <input id="lastName" class="form-control form-control-sm" placeholder="Apellido" @bind-value="SearchLastName" @bind-value:event="oninput" maxlength="50"/>
             </div>
         </div>
 
