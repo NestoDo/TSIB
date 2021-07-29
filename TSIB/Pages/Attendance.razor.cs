@@ -31,6 +31,7 @@ namespace TSIB.Pages
         public IEnumerable<TSIB.Api.Models.AttendanceType> AttendanceTypes { get; set; }
         public IEnumerable<AttendanceViewModel> AttendancesViewModel { get; set; }
 
+        public int EmployeeId { get; set; } = 0;
         public string Year { get; set; } = DateTime.Now.Year.ToString();
         public string Month { get; set; } = DateTime.Now.Month.ToString();
         public int Days { get; set; } = 0;
@@ -68,10 +69,10 @@ namespace TSIB.Pages
 
             this.Days = days;
 
-            string search = search = $"IsActive=true";
+            string search = search = $"IsActive=true";            
             Employees = (await EmployeeService.GetEmployees(search)).ToList();
 
-            search = $"employeeId=24&year={year}&month={month}";
+            search = $"employeeId={EmployeeId}&year={year}&month={month}";
             Attendances = (await AttendanceService.GetAttendance(search)).ToList();
 
             search = string.Empty;
