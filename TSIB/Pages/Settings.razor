@@ -1,0 +1,14 @@
+﻿@page "/settings"
+
+<h4>Configuración</h4>
+
+<EditForm Model="@SettingsRecord" OnValidSubmit="HandleValidSubmit">
+    <div class="card">
+        <div class="card-header">
+            <label for="reconcile" class="col-sm-2 col-form-label">
+                Corte
+            </label>
+            <InputDate type="date" name="reconcile" @bind-Value="@SettingsRecord.ReconcileDate"/>
+        </div>
+    </div>
+</EditForm>
