@@ -5,10 +5,16 @@
 <EditForm Model="@SettingsRecord" OnValidSubmit="HandleValidSubmit">
     <div class="card">
         <div class="card-header">
-            <label for="reconcile" class="col-sm-2 col-form-label">
-                Corte
-            </label>
-            <InputDate type="date" name="reconcile" @bind-Value="@SettingsRecord.ReconcileDate"/>
+            <div class="form-group row">
+                <label for="reconcile" class="col-sm-2 col-form-label">
+                    Corte
+                </label>
+                <InputDate type="date" name="reconcile" @bind-Value="@SettingsRecord.ReconcileDate" />
+            </div>
+
+            <div class="form-group row">
+                <button class="btn btn-primary btn-sm" type="submit"><span class="oi oi-hard-drive" aria-hidden="true"></span>Guardar</button>
+            </div>
         </div>
     </div>
 </EditForm>

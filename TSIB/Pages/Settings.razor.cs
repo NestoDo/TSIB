@@ -11,6 +11,9 @@ namespace TSIB.Pages
     public partial class Settings
     {
         [Inject]
+        public NavigationManager NavigationManager { get; set; }
+
+        [Inject]
         public ISettingService SettingService { get; set; }
 
         public Setting SettingsRecord { get; set; } = new Setting();
@@ -21,9 +24,16 @@ namespace TSIB.Pages
             SettingsRecord = (await SettingService.GetSetting());
         }
 
-        public void HandleValidSubmit()
+        protected async Task HandleValidSubmit()
         {
+            Setting result = null;
 
+            result = await SettingService.UpdateSetting(SettingsRecord);
+
+            if (result != null)
+            {
+                NavigationManager.NavigateTo("/");
+            }
         }
     }
 }

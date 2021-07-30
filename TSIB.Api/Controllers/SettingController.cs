@@ -30,5 +30,21 @@ namespace TSIB.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
+        [HttpPost]
+        public async Task<ActionResult<Setting>> UpdateSetting(Setting setting)
+        {
+            try
+            {
+                var updateSetting = await _settingRepository.UpdateSetting(setting);
+
+                return updateSetting;
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error updating data {ex.Message} {ex.InnerException}");
+
+            }
+        }
     }
 }

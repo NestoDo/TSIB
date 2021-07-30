@@ -21,5 +21,10 @@ namespace TSIB.Services
         {
             return await httpClient.GetJsonAsync<Setting>($"api/setting/search?");
         }
+
+        public async Task<Setting> UpdateSetting(TSIB.Api.Models.Setting setting)
+        {
+            return await httpClient.PostJsonAsync<Setting>($"api/setting", setting);
+        }
     }
 }

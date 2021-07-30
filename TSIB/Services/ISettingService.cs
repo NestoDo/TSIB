@@ -9,5 +9,6 @@ namespace TSIB.Services
     public interface ISettingService
     {
         Task<Setting> GetSetting();
+        Task<Setting> UpdateSetting(Setting setting);
     }
 }

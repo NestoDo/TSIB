@@ -29,5 +29,24 @@ namespace TSIB.Api.Repositories
                 return result.FirstOrDefault();
             }
         }
+
+        public async Task<Setting> UpdateSetting(Setting setting)
+        {
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@ReconcileDate", setting.ReconcileDate);
+
+            using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
+            {
+                con.Open();
+
+                var result = await con.QueryAsync<Setting>(
+                    sql: "UpdateSetting",
+                    param: parameters,
+                    commandType: CommandType.StoredProcedure);
+
+                return result.FirstOrDefault();
+            }
+        }
     }
 }
