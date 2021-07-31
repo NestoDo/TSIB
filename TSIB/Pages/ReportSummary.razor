@@ -1,0 +1,41 @@
+﻿@page "/reportsummary"
+
+<h4>Reporte Acumulado</h4>
+
+@if (Employees == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+
+            <div class="form-group row">
+                <label for="employeeId" class="col-sm-2 col-form-label">
+                    Empleado
+                </label>
+                <div class="col-sm-4">
+                    <select style="padding-left:0; padding-right:0; border-left:0; border-right:0; border:none; outline:0px;" class="form-control form-control-sm" name="EmployeeId" id="employeeId" @bind-value="EmployeeId" @bind-value:event="oninput">
+                        <option value="0">Todos</option>
+                        @foreach (var employee in Employees)
+                        {
+                            <option value="@employee.EmployeeId">@employee.FirstName @employee.LastName</option>
+                        }
+                    </select>
+                </div>
+
+                <label for="date" class="col-sm-2 col-form-label">
+                    Fecha Final
+                </label>
+                <div class="col-sm-4">
+                    <input type="date" id="date" name="date" @bind-value="Date" @bind-value:event="oninput"/>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+}
+
+   

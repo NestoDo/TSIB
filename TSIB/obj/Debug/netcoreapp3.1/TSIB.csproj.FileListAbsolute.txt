@@ -99,3 +99,5 @@ C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\TSIB.pdb
 C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\TSIB.genruntimeconfig.cache
 C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Settings.razor.g.cs
 C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\Razor\Pages\Settings.razor.g.cs
+C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ReportSummary.razor.g.cs
+C:\Users\omare\source\repos\TSIB\TSIB\obj\Debug\netcoreapp3.1\Razor\Pages\ReportSummary.razor.g.cs

@@ -2,7 +2,7 @@
 @using System.Globalization
 
 <h4>Asistencia</h4>
-@if (Attendances == null || AttendanceTypes == null)
+@if (Attendances == null || AttendanceTypes == null || Employees == null)
 {
     <div class="spinner"></div>
 }
@@ -116,8 +116,8 @@ else
                             {
                                 <td class="backGray">
                                     @(
-                            new CultureInfo("Es-Es").DateTimeFormat.GetDayName(new DateTime(Convert.ToInt32(YearSearch), Convert.ToInt32(MonthSearch), i).DayOfWeek).Substring(0, 3)
-                        )
+                                new CultureInfo("Es-Es").DateTimeFormat.GetDayName(new DateTime(Convert.ToInt32(YearSearch), Convert.ToInt32(MonthSearch), i).DayOfWeek).Substring(0, 3))
+
                                 </td>
                             }
 
@@ -143,6 +143,7 @@ else
                                         </select>
                                     </td>
                                 }
+
                             </tr>
                         }
                     </tbody>
