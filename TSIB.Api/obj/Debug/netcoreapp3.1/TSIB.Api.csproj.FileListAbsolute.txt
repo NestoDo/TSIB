@@ -61,3 +61,6 @@ C:\Users\omare\source\repos\TSIB\TSIB.Api\obj\Debug\netcoreapp3.1\TSIB.Api.cspro
 C:\Users\omare\source\repos\TSIB\TSIB.Api\obj\Debug\netcoreapp3.1\TSIB.Api.dll
 C:\Users\omare\source\repos\TSIB\TSIB.Api\obj\Debug\netcoreapp3.1\TSIB.Api.pdb
 C:\Users\omare\source\repos\TSIB\TSIB.Api\obj\Debug\netcoreapp3.1\TSIB.Api.genruntimeconfig.cache
+C:\Users\omare\source\repos\TSIB\TSIB.Api\bin\Debug\netcoreapp3.1\Misc.dll
+C:\Users\omare\source\repos\TSIB\TSIB.Api\bin\Debug\netcoreapp3.1\Misc.pdb
+C:\Users\omare\source\repos\TSIB\TSIB.Api\obj\Debug\netcoreapp3.1\TSIB.Api.csprojAssemblyReference.cache

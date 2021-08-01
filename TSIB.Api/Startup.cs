@@ -35,6 +35,7 @@ namespace TSIB.Api
             services.AddScoped<IAttendanceRepository, AttendanceRepository>();
             services.AddScoped<IAttendanceTypeRepository, AttendanceTypeRepository>();
             services.AddScoped<ISettingRepository, SettingRepository>();
+            services.AddScoped<IReportRepository, ReportRepository>();
 
             services.AddControllers();
         }

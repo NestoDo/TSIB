@@ -12,8 +12,13 @@ namespace TSIB.Pages
     {
         [Inject]
         public IEmployeeService EmployeeService { get; set; }
+        [Inject]
+        public IReportService ReportService { get; set; }
+
 
         public IEnumerable<TSIB.Api.Models.Employee> Employees { get; set; }
+        public IEnumerable<TSIB.Api.Models.ReportSummary> ReportSummaryList { get; set; }
+
 
         public DateTime Date { get; set; } = DateTime.Now;
 
@@ -24,6 +29,13 @@ namespace TSIB.Pages
             string search = search = $"IsActive=true";
             Employees = (await EmployeeService.GetEmployees(search)).ToList();
 
+            await this.ReportSummarySearch_Click();
+        }
+
+        private async Task ReportSummarySearch_Click()
+        {
+            string search = search = $"employeeId={EmployeeId}&summaryDate={Date}";
+            ReportSummaryList = (await ReportService.GetReportSummary(search)).ToList();
         }
     }
 }

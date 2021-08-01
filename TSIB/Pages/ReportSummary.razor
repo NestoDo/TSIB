@@ -29,13 +29,41 @@ else
                     Fecha Final
                 </label>
                 <div class="col-sm-4">
-                    <input type="date" id="date" name="date" @bind-value="Date" @bind-value:event="oninput"/>
+                    <input type="date" id="date" name="date" @bind-value="Date" @bind-value:event="oninput" />
                 </div>
 
             </div>
 
+            <div class="form-group row d-flex justify-content-between">
+                <div>
+                    <button class="btn btn-primary btn-sm" @onclick="ReportSummarySearch_Click"><span class="oi oi-magnifying-glass" aria-hidden="true"></span> Buscar</button>
+                </div>
+            </div>
+
+
         </div>
     </div>
+
+
+    <table class="table table-hover table-sm table-bordered">
+        <thead>
+            <tr>
+                <th class="backGray" scope="col">Nombre Empleado</th>
+                <th class="backGray" scope="col">E</th>
+                <th class="backGray" scope="col">D</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var report in ReportSummaryList)
+            {
+                <tr>
+                    <th scope="row">@report.FirstName @report.LastName</th>
+                    <td>@report.E</td>
+                    <td>@report.D</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 
-   
+

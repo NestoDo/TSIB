@@ -1526,6 +1526,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "Misc/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Misc.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Misc.dll": {}
+        }
       }
     }
   },
@@ -5825,13 +5835,19 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "Misc/1.0.0": {
+      "type": "project",
+      "path": "../Misc/Misc.csproj",
+      "msbuildProject": "../Misc/Misc.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Dapper >= 2.0.90",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.7",
-      "Microsoft.EntityFrameworkCore.Tools >= 5.0.7"
+      "Microsoft.EntityFrameworkCore.Tools >= 5.0.7",
+      "Misc >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5860,7 +5876,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\omare\\source\\repos\\TSIB\\Misc\\Misc.csproj": {
+              "projectPath": "C:\\Users\\omare\\source\\repos\\TSIB\\Misc\\Misc.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
