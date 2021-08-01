@@ -34,6 +34,8 @@ namespace TSIB.Pages
         public int EmployeeId { get; set; } = 0;
         public string Year { get; set; } = DateTime.Now.Year.ToString();
         public string Month { get; set; } = DateTime.Now.Month.ToString();
+        public string MonthText { get; set; } = string.Empty;
+
 
         public int YearSearch { get; set; } = DateTime.Now.Year;
         public int MonthSearch { get; set; } = DateTime.Now.Month;
@@ -63,11 +65,18 @@ namespace TSIB.Pages
             await AttendanceService.UpdateAttendance(attendance);
         }
 
+        public string GetMonthName(int month)
+        {
+            return new CultureInfo(("Es-Es")).
+                DateTimeFormat.GetMonthName
+                (month);
+        }
 
         private async Task AttendanceSearch()
         {
             YearSearch = Convert.ToInt32(Year);
             MonthSearch = Convert.ToInt32(Month);
+            MonthText = GetMonthName(MonthSearch);
 
             int days = DateTime.DaysInMonth(YearSearch, MonthSearch);
 
