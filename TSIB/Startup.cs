@@ -29,29 +29,31 @@ namespace TSIB
         {            
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
+            
             services.AddHttpClient<IEmployeeService, EmployeeService>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44345/");
+                client.BaseAddress = new Uri(Configuration.GetSection("ApiServiceUrl").Value);
             });
             services.AddHttpClient<IDepartmentService, DepartmentService>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44345/");
+                client.BaseAddress = new Uri(Configuration.GetSection("ApiServiceUrl").Value);
             });
             services.AddHttpClient<IAttendanceService, AttendanceService>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44345/");
+                client.BaseAddress = new Uri(Configuration.GetSection("ApiServiceUrl").Value);
             });
             services.AddHttpClient<IAttendanceTypeService, AttendanceTypeService>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44345/");
+                client.BaseAddress = new Uri(Configuration.GetSection("ApiServiceUrl").Value);
             });
             services.AddHttpClient<ISettingService, SettingService>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44345/");
+                client.BaseAddress = new Uri(Configuration.GetSection("ApiServiceUrl").Value);
             });
             services.AddHttpClient<IReportService, ReportService>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44345/");
+                client.BaseAddress = new Uri(Configuration.GetSection("ApiServiceUrl").Value);
             });
         }
 
