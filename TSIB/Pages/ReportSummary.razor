@@ -49,18 +49,22 @@ else
         <thead>
             <tr>
                 <th class="backGray" scope="col">Nombre Empleado</th>
-                <th class="backGray" scope="col">E</th>
-                <th class="backGray" scope="col">D</th>
+                <th class="backGray" scope="col">EstanciaAcumulado</th>
+                <th class="backGray" scope="col">DescansosDisponible</th>
+                <th class="backGray" scope="col">DescansosUtilizados</th>
+                <th class="backGray" scope="col">DiasQueSeDeben</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var report in ReportSummaryList)
             {
-                <tr>
-                    <th scope="row">@report.FirstName @report.LastName</th>
-                    <td>@report.E</td>
-                    <td>@report.D</td>
-                </tr>
+            <tr>
+                <th scope="row">@report.FirstName @report.LastName</th>
+                <td>@report.EstanciaAcumulado</td>
+                <td>@report.DescansosDisponible</td>
+                <td>@report.DescansosUtilizados</td>
+                <td>@report.DiasQueSeDeben</td>
+            </tr>
             }
         </tbody>
     </table>

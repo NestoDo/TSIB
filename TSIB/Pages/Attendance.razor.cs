@@ -35,7 +35,7 @@ namespace TSIB.Pages
         public string Year { get; set; } = DateTime.Now.Year.ToString();
         public string Month { get; set; } = DateTime.Now.Month.ToString();
         public string MonthText { get; set; } = string.Empty;
-
+        
 
         public int YearSearch { get; set; } = DateTime.Now.Year;
         public int MonthSearch { get; set; } = DateTime.Now.Month;

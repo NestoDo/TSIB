@@ -144,7 +144,7 @@ else
                                     int iDay = i;
                                     <td style="padding-left:0; padding-right:0; padding-bottom:0px; padding-top:0px;">
 
-                                        <select style="width:50px; padding-left:0; padding-right:0; border-left:0; border-right:0;" class="form-control form-control-sm" name="AttendanceType" id="attendanceTypeId" @bind-value="attendance.Attendance[iDay]" @bind-value:event="oninput" @onchange="(() => SaveAttenndace_Click(attendance, Convert.ToInt32(Year), Convert.ToInt32(Month), iDay))">
+                                        <select style= "width: 50px; padding-left: 0; padding-right: 0; border-left: 0; border-right: 0;" class="form-control form-control-sm" name="AttendanceType" id="attendanceTypeId" @bind-value="attendance.Attendance[iDay]" @bind-value:event="oninput" @onchange="(() => SaveAttenndace_Click(attendance, Convert.ToInt32(Year), Convert.ToInt32(Month), iDay))">
                                             @foreach (var attendanceType in AttendanceTypes)
                                             {
                                                 <option value="@attendanceType.AttendanceTypeId">@attendanceType.ShortDescription</option>

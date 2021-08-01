@@ -10,7 +10,9 @@ namespace TSIB.Api.Models
         public int EmployeeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int E { get; set; }
-        public int D { get; set; }
+        public int EstanciaAcumulado { get; set; }
+        public int DescansosDisponible { get; set; }
+        public int DescansosUtilizados { get; set; }
+        public int DiasQueSeDeben { get; set; }
     }
 }
