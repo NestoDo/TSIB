@@ -60,9 +60,9 @@ else
                     @foreach (var report in ReportSummaryList)
                     {
                         int employeeId = report.EmployeeId;
-                        <tr>
+                        <tr style="cursor: pointer;" @onclick="() => SummaryDetailSearch_Click(employeeId)">
 
-                            <th scope="row" @onclick="() => SummaryDetailSearch_Click(employeeId)">@report.FirstName @report.LastName</th>
+                            <th scope="row">@report.FirstName @report.LastName</th>
                             <td class="EColor">@report.EstanciaAcumulado</td>
                             <td>@report.DescansosDisponible</td>
                             <td class="DColor">@report.DescansosUtilizados</td>
