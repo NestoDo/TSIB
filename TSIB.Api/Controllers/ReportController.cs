@@ -17,12 +17,26 @@ namespace TSIB.Api.Controllers
             _reportRepository = reportRepository;
         }
 
-        [HttpGet("{reportsummary}")]
+        [HttpGet("reportsummary")]
         public async Task<ActionResult> GetReportSummary(int employeeId, DateTime summaryDate)
         {
             try
             {
                 return Ok(await _reportRepository.GetReportSummary(employeeId, summaryDate));
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpGet("reportsummarydetail")]
+        public async Task<ActionResult> GetReportSummaryDetail(int employeeId, DateTime summaryDate)
+        {
+            try
+            {
+                return Ok(await _reportRepository.GetReportSummaryDetail(employeeId, summaryDate));
             }
             catch (Exception ex)
             {

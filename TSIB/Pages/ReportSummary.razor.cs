@@ -18,6 +18,7 @@ namespace TSIB.Pages
 
         public IEnumerable<TSIB.Api.Models.Employee> Employees { get; set; }
         public IEnumerable<TSIB.Api.Models.ReportSummary> ReportSummaryList { get; set; }
+        public IEnumerable<TSIB.Api.Models.ReportSummaryDetail> ReportSummaryDetailList { get; set; }
 
 
         public DateTime Date { get; set; } = DateTime.Now;
@@ -36,6 +37,12 @@ namespace TSIB.Pages
         {
             string search = search = $"employeeId={EmployeeId}&summaryDate={Date}";
             ReportSummaryList = (await ReportService.GetReportSummary(search)).ToList();
+        }
+
+        private async Task SummaryDetailSearch_Click(int employeeId)
+        {
+            string search = search = $"employeeId={employeeId}&summaryDate={Date}";
+            ReportSummaryDetailList = (await ReportService.GetReportSummaryDetail(search)).ToList();
         }
     }
 }

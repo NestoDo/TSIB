@@ -44,30 +44,38 @@ else
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-sm-6">
+            <table class="table table-hover table-sm table-bordered">
+                <thead>
+                    <tr>
+                        <th class="backGray" scope="col">Nombre Empleado</th>
+                        <th class="backGray" scope="col">Estancia Acumulado</th>
+                        <th class="backGray" scope="col">Descansos Disponible</th>
+                        <th class="backGray" scope="col">Descansos Utilizados</th>
+                        <th class="backGray" scope="col">Dias Que Se Deben</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var report in ReportSummaryList)
+                    {
+                        int employeeId = report.EmployeeId;
+                        <tr>
 
-    <table class="table table-hover table-sm table-bordered">
-        <thead>
-            <tr>
-                <th class="backGray" scope="col">Nombre Empleado</th>
-                <th class="backGray" scope="col">EstanciaAcumulado</th>
-                <th class="backGray" scope="col">DescansosDisponible</th>
-                <th class="backGray" scope="col">DescansosUtilizados</th>
-                <th class="backGray" scope="col">DiasQueSeDeben</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var report in ReportSummaryList)
-            {
-            <tr>
-                <th scope="row">@report.FirstName @report.LastName</th>
-                <td>@report.EstanciaAcumulado</td>
-                <td>@report.DescansosDisponible</td>
-                <td>@report.DescansosUtilizados</td>
-                <td>@report.DiasQueSeDeben</td>
-            </tr>
-            }
-        </tbody>
-    </table>
+                            <th scope="row" @onclick="() => SummaryDetailSearch_Click(employeeId)">@report.FirstName @report.LastName</th>
+                            <td>@report.EstanciaAcumulado</td>
+                            <td>@report.DescansosDisponible</td>
+                            <td>@report.DescansosUtilizados</td>
+                            <td>@report.DiasQueSeDeben</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-sm-6">
+        </div>
+    </div>
 }
 
 

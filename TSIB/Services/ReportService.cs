@@ -22,5 +22,11 @@ namespace TSIB.Services
 
             return await httpClient.GetJsonAsync<ReportSummary[]>($"api/report/reportsummary?{search}");
         }
+
+        public async Task<IEnumerable<ReportSummaryDetail>> GetReportSummaryDetail(string search)
+        {
+
+            return await httpClient.GetJsonAsync<ReportSummaryDetail[]>($"api/report/reportsummarydetail?{search}");
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace TSIB.Api.Repositories
     public interface IReportRepository
     {
         Task<IEnumerable<ReportSummary>> GetReportSummary(int employeeId, DateTime summaryDate);
+        Task<IEnumerable<ReportSummaryDetail>> GetReportSummaryDetail(int employeeId, DateTime summaryDate);
     }
 }

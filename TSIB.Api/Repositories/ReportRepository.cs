@@ -37,5 +37,25 @@ namespace TSIB.Api.Repositories
                 return result.ToList();
             }
         }
+
+        public async Task<IEnumerable<ReportSummaryDetail>> GetReportSummaryDetail(int employeeId, DateTime summaryDate)
+        {
+            var lookup = new Dictionary<int, Employee>();
+
+            using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
+            {
+                con.Open();
+                var parameters = new DynamicParameters();
+                parameters.Add("@EmployeeId", employeeId);
+                parameters.Add("@SummaryDate", summaryDate.Default());
+
+                var result = await con.QueryAsync<ReportSummaryDetail>(
+                    "ReportSummaryDetail",
+                    param: parameters,
+                    commandType: CommandType.StoredProcedure);
+
+                return result.ToList();
+            }
+        }
     }
 }

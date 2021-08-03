@@ -9,5 +9,6 @@ namespace TSIB.Services
     public interface IReportService
     {
         Task<IEnumerable<ReportSummary>> GetReportSummary(string search);
+        Task<IEnumerable<ReportSummaryDetail>> GetReportSummaryDetail(string search);
     }
 }
