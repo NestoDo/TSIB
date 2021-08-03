@@ -2,7 +2,7 @@
 
 <h4>Reporte Acumulado</h4>
 
-@if (Employees == null)
+@if (Employees == null || ReportSummaryList == null)
 {
     <div class="spinner"></div>
 }
@@ -73,7 +73,32 @@ else
             </table>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-1">
+        </div>
+
+        <div class="col-sm-5">
+            @if (ReportSummaryDetailList != null)
+            {
+
+                <table class="table table-hover table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="backGray" scope="col">Tipo Asistencia</th>
+                            <th class="backGray" scope="col">Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var report in ReportSummaryDetailList)
+                        {
+                            int employeeId = report.EmployeeId;
+                            <tr>                               
+                                <td>@report.AttendanceType</td>
+                                <td>@report.Date</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
         </div>
     </div>
 }
