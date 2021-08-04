@@ -83,7 +83,7 @@ using TSIB.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 42 "C:\Users\omare\source\repos\TSIB\TSIB\Shared\NavMenu.razor"
+#line 47 "C:\Users\omare\source\repos\TSIB\TSIB\Shared\NavMenu.razor"
 
     private bool collapseNavMenu = true;
 
