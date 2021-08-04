@@ -26,6 +26,8 @@ namespace TSIB.Pages
 
         public int EmployeeId { get; set; } = 0;
 
+        public string EmployeeName { get; set; } = "Nombre Empleado";
+
         protected override async Task OnInitializedAsync()
         {
             string search = search = $"IsActive=true";
@@ -40,8 +42,10 @@ namespace TSIB.Pages
             ReportSummaryList = (await ReportService.GetReportSummary(search)).ToList();
         }
 
-        private async Task SummaryDetailSearch_Click(int employeeId)
+        private async Task SummaryDetailSearch_Click(int employeeId, string employeeName)
         {
+            EmployeeName = employeeName;
+
             string search = search = $"employeeId={employeeId}&summaryDate={Date}";
             ReportSummaryDetailList = (await ReportService.GetReportSummaryDetail(search)).ToList();
 
