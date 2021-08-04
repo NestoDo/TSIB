@@ -46,8 +46,6 @@ namespace TSIB.Api.Models
 
                 entity.Property(e => e.Date).HasColumnType("date");
 
-                entity.Property(e => e.ReconcileDate).HasColumnType("datetime");
-
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 
                 entity.HasOne(d => d.AttendanceType)
