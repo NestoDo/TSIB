@@ -73,10 +73,7 @@ else
             </table>
         </div>
 
-        <div class="col-sm-1">
-        </div>
-
-        <div class="col-sm-5">
+        <div class="col-sm-3">
             @if (ReportSummaryDetailList != null)
             {
 
@@ -92,7 +89,7 @@ else
                         {
                             int employeeId = report.EmployeeId;
                             string classTDColor = $"{report.AttendanceType}Color";
-                            <tr class="@classTDColor">                               
+                            <tr class="@classTDColor">
                                 <td>@report.AttendanceType</td>
                                 <td>@report.Date.ToString("yyyy-MM-dd")</td>
                             </tr>
@@ -101,6 +98,38 @@ else
                 </table>
             }
         </div>
+
+        <div class="col-sm-3">
+            @if (ReportSummaryGroupList != null)
+            {
+                <table class="table table-hover table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="backGray" scope="col">E</th>
+                            <th class="backGray" scope="col">D</th>
+                            <th class="backGray" scope="col">Mes</th>
+                            <th class="backGray" scope="col">Año</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var report in ReportSummaryGroupList)
+                        {
+                            <tr>
+                                <td>@report.E</td>
+                                <td>@report.D</td>
+                                <td>@report.Date.Month</td>
+                                <td>@report.Date.Year</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+
+        </div>
+
+
     </div>
 }
 

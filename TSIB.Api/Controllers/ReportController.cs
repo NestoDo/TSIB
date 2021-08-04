@@ -44,5 +44,19 @@ namespace TSIB.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
+        [HttpGet("reportsummarygroup")]
+        public async Task<ActionResult> GetReportSummaryGroup(int employeeId, DateTime summaryDate)
+        {
+            try
+            {
+                return Ok(await _reportRepository.GetReportSummaryGroup(employeeId, summaryDate));
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
     }
 }

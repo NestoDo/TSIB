@@ -1,0 +1,9 @@
+C:\Users\omare\source\repos\TSIB\Misc\bin\Release\netcoreapp3.1\Misc.deps.json
+C:\Users\omare\source\repos\TSIB\Misc\bin\Release\netcoreapp3.1\Misc.dll
+C:\Users\omare\source\repos\TSIB\Misc\bin\Release\netcoreapp3.1\Misc.pdb
+C:\Users\omare\source\repos\TSIB\Misc\obj\Release\netcoreapp3.1\Misc.csprojAssemblyReference.cache
+C:\Users\omare\source\repos\TSIB\Misc\obj\Release\netcoreapp3.1\Misc.AssemblyInfoInputs.cache
+C:\Users\omare\source\repos\TSIB\Misc\obj\Release\netcoreapp3.1\Misc.AssemblyInfo.cs
+C:\Users\omare\source\repos\TSIB\Misc\obj\Release\netcoreapp3.1\Misc.csproj.CoreCompileInputs.cache
+C:\Users\omare\source\repos\TSIB\Misc\obj\Release\netcoreapp3.1\Misc.dll
+C:\Users\omare\source\repos\TSIB\Misc\obj\Release\netcoreapp3.1\Misc.pdb

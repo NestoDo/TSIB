@@ -10,5 +10,6 @@ namespace TSIB.Services
     {
         Task<IEnumerable<ReportSummary>> GetReportSummary(string search);
         Task<IEnumerable<ReportSummaryDetail>> GetReportSummaryDetail(string search);
+        Task<IEnumerable<ReportSummaryGroup>> GetReportSummaryGroup(string search);
     }
 }

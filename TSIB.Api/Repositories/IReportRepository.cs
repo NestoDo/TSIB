@@ -10,5 +10,6 @@ namespace TSIB.Api.Repositories
     {
         Task<IEnumerable<ReportSummary>> GetReportSummary(int employeeId, DateTime summaryDate);
         Task<IEnumerable<ReportSummaryDetail>> GetReportSummaryDetail(int employeeId, DateTime summaryDate);
+        Task<IEnumerable<ReportSummaryGroup>> GetReportSummaryGroup(int employeeId, DateTime summaryDate);
     }
 }
