@@ -1,4 +1,5 @@
 ﻿@page "/reportsummary"
+@using System.Globalization
 
 <h4>Reporte Acumulado</h4>
 
@@ -126,7 +127,7 @@ else
                             <tr>
                                 <td>@report.E</td>
                                 <td>@report.D</td>
-                                <td>@report.Date.Month</td>
+                                <td>@( new CultureInfo("Es-Es").DateTimeFormat.GetMonthName(@report.Date.Month))</td>
                                 <td>@report.Date.Year</td>
                             </tr>
                         }

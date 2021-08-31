@@ -75,6 +75,13 @@ using TSIB.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\omare\source\repos\TSIB\TSIB\Pages\ReportSummary.razor"
+using System.Globalization;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/reportsummary")]
     public partial class ReportSummary : Microsoft.AspNetCore.Components.ComponentBase
     {
