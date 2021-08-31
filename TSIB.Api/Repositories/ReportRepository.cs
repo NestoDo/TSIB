@@ -18,7 +18,7 @@ namespace TSIB.Api.Repositories
         {
             _appDbContext = appDbContext;
         }
-        public async Task<IEnumerable<ReportSummary>> GetReportSummary(int employeeId, DateTime summaryDate)
+        public async Task<IEnumerable<ReportSummary>> GetReportSummary(int employeeId, DateTime dateInit, DateTime dateEnd)
         {
             var lookup = new Dictionary<int, Employee>();
 
@@ -27,7 +27,8 @@ namespace TSIB.Api.Repositories
                 con.Open();
                 var parameters = new DynamicParameters();
                 parameters.Add("@EmployeeId", employeeId);
-                parameters.Add("@SummaryDate", summaryDate.Default());
+                parameters.Add("@DateInit", dateInit.Default());
+                parameters.Add("@DateEnd", dateEnd.Default());
 
                 var result  = await con.QueryAsync<ReportSummary>(
                     "ReportSummary",

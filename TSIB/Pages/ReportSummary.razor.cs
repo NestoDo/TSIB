@@ -22,7 +22,8 @@ namespace TSIB.Pages
         public IEnumerable<TSIB.Api.Models.ReportSummaryGroup> ReportSummaryGroupList { get; set; }
 
 
-        public DateTime Date { get; set; } = DateTime.Now;
+        public DateTime DateInit { get; set; } = DateTime.Now;
+        public DateTime DateEnd { get; set; } = DateTime.Now;
 
         public int EmployeeId { get; set; } = 0;
 
@@ -38,7 +39,7 @@ namespace TSIB.Pages
 
         private async Task ReportSummarySearch_Click()
         {
-            string search = search = $"employeeId={EmployeeId}&summaryDate={Date}";
+            string search = search = $"employeeId={EmployeeId}&dateInit={DateInit}&dateEnd={DateEnd}";
             ReportSummaryList = (await ReportService.GetReportSummary(search)).ToList();
         }
 
@@ -46,10 +47,10 @@ namespace TSIB.Pages
         {
             EmployeeName = employeeName;
 
-            string search = search = $"employeeId={employeeId}&summaryDate={Date}";
+            string search = search = $"employeeId={employeeId}&summaryDate={DateInit}";
             ReportSummaryDetailList = (await ReportService.GetReportSummaryDetail(search)).ToList();
 
-            search = search = $"employeeId={employeeId}&summaryDate={Date}";
+            search = search = $"employeeId={employeeId}&summaryDate={DateInit}";
             ReportSummaryGroupList = (await ReportService.GetReportSummaryGroup(search)).ToList();
         }
     }

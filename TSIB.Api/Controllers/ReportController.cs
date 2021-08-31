@@ -18,11 +18,11 @@ namespace TSIB.Api.Controllers
         }
 
         [HttpGet("reportsummary")]
-        public async Task<ActionResult> GetReportSummary(int employeeId, DateTime summaryDate)
+        public async Task<ActionResult> GetReportSummary(int employeeId, DateTime dateInit, DateTime dateEnd)
         {
             try
             {
-                return Ok(await _reportRepository.GetReportSummary(employeeId, summaryDate));
+                return Ok(await _reportRepository.GetReportSummary(employeeId, dateInit, dateEnd));
             }
             catch (Exception ex)
             {
