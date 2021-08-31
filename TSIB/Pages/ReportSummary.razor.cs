@@ -47,10 +47,10 @@ namespace TSIB.Pages
         {
             EmployeeName = employeeName;
 
-            string search = search = $"employeeId={employeeId}&summaryDate={DateInit}";
+            string search = search = $"employeeId={employeeId}&dateInit={DateInit}&dateEnd={DateEnd}";
             ReportSummaryDetailList = (await ReportService.GetReportSummaryDetail(search)).ToList();
 
-            search = search = $"employeeId={employeeId}&summaryDate={DateInit}";
+            search = search = $"employeeId={employeeId}&dateInit={DateInit}&dateEnd={DateEnd}";
             ReportSummaryGroupList = (await ReportService.GetReportSummaryGroup(search)).ToList();
         }
     }

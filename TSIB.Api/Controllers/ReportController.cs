@@ -32,11 +32,11 @@ namespace TSIB.Api.Controllers
         }
 
         [HttpGet("reportsummarydetail")]
-        public async Task<ActionResult> GetReportSummaryDetail(int employeeId, DateTime summaryDate)
+        public async Task<ActionResult> GetReportSummaryDetail(int employeeId, DateTime dateInit, DateTime dateEnd)
         {
             try
             {
-                return Ok(await _reportRepository.GetReportSummaryDetail(employeeId, summaryDate));
+                return Ok(await _reportRepository.GetReportSummaryDetail(employeeId, dateInit, dateEnd));
             }
             catch (Exception ex)
             {
@@ -46,11 +46,11 @@ namespace TSIB.Api.Controllers
         }
 
         [HttpGet("reportsummarygroup")]
-        public async Task<ActionResult> GetReportSummaryGroup(int employeeId, DateTime summaryDate)
+        public async Task<ActionResult> GetReportSummaryGroup(int employeeId, DateTime dateInit, DateTime dateEnd)
         {
             try
             {
-                return Ok(await _reportRepository.GetReportSummaryGroup(employeeId, summaryDate));
+                return Ok(await _reportRepository.GetReportSummaryGroup(employeeId, dateInit, dateEnd));
             }
             catch (Exception ex)
             {
