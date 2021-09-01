@@ -143,42 +143,42 @@ else
                         {
                             int contTypeE = 0;
                             int contTypeD = 0;
-                    <tr>
-                        <td class="backGray" scope="row" style="font-size: 13px; padding-bottom:0px; padding-top:0px;">@attendance.EmployeeName</td>
+                            <tr>
+                                <td class="backGray" scope="row" style="font-size: 13px; padding-bottom:0px; padding-top:0px;">@attendance.EmployeeName</td>
 
-                        @for (int i = 1; i < attendance.Attendance.Length; i++)
-                        {
+                                @for (int i = 1; i < attendance.Attendance.Length; i++)
+                                {
 
-                            int iDay = i;
-                            if (attendance.Attendance[iDay] == 3)
-                            {
-                                contTypeE++;
-                            }
-                            else if (attendance.Attendance[iDay] == 2)
-                            {
-                                contTypeD++;
-                            }
-
-                            <td style="padding-left:0; padding-right:0; padding-bottom:0px; padding-top:0px;">
-
-                                <select style="width: 50px; padding-left: 0; padding-right: 0; border-left: 0; border-right: 0;" class="form-control form-control-sm" name="AttendanceType" id="attendanceTypeId" @bind-value="attendance.Attendance[iDay]" @bind-value:event="oninput" @onchange="(() => SaveAttenndace_Click(attendance, Convert.ToInt32(Year), Convert.ToInt32(Month), iDay))">
-                                    @foreach (var attendanceType in AttendanceTypes)
+                                    int iDay = i;
+                                    if (attendance.Attendance[iDay] == 3)
                                     {
-                                        <option value="@attendanceType.AttendanceTypeId">@attendanceType.ShortDescription</option>
+                                        contTypeE++;
                                     }
-                                </select>
-                            </td>
-                        }
+                                    else if (attendance.Attendance[iDay] == 2)
+                                    {
+                                        contTypeD++;
+                                    }
 
-                        <td style="padding-left:0; padding-right:0; padding-bottom:0px; padding-top:0px; font-weight:bold; text-align: center;">
-                            @contTypeE
-                        </td>
+                                    <td style="padding-left:0; padding-right:0; padding-bottom:0px; padding-top:0px;">
 
-                        <td style="padding-left:0; padding-right:0; padding-bottom:0px; padding-top:0px; font-weight:bold; text-align: center;">
-                            @contTypeD
-                        </td>
+                                        <select style="width: 50px; padding-left: 0; padding-right: 0; border-left: 0; border-right: 0;" class="form-control form-control-sm" name="AttendanceType" id="attendanceTypeId" @bind-value="attendance.Attendance[iDay]" @bind-value:event="oninput" @onchange="(() => SaveAttenndace_Click(attendance, Convert.ToInt32(Year), Convert.ToInt32(Month), iDay))">
+                                            @foreach (var attendanceType in AttendanceTypes)
+                                            {
+                                                <option value="@attendanceType.AttendanceTypeId">@attendanceType.ShortDescription</option>
+                                            }
+                                        </select>
+                                    </td>
+                                }
 
-                    </tr>
+                                <td style="padding-left:0; padding-right:0; padding-bottom:0px; padding-top:0px; font-weight:bold; text-align: center;">
+                                    @contTypeE
+                                </td>
+
+                                <td style="padding-left:0; padding-right:0; padding-bottom:0px; padding-top:0px; font-weight:bold; text-align: center;">
+                                    @contTypeD
+                                </td>
+
+                            </tr>
                         }
                     </tbody>
                 </table>
