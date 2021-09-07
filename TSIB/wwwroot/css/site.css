@@ -286,3 +286,7 @@ thead tr:nth-child(1) th {
 .DColor {
     background-color: #D7FFAF;
 }
+
+.comment:hover {
+    background-color: yellow;
+}
