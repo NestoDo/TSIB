@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -19,6 +20,9 @@ namespace TSIB.Pages
 
     public partial class Attendance
     {
+        [Inject]
+        public IJSRuntime JSRuntime { get; set; }
+
         [Inject]
         public IAttendanceService AttendanceService { get; set; }
         [Inject]
@@ -119,6 +123,22 @@ namespace TSIB.Pages
             }
 
             AttendancesViewModel = avml;
+        }
+
+        public int YearhModal { get; set; } = 1900;
+        public int MonthhModal { get; set; } = 1;
+        public int DayhModal { get; set; } = 1;
+        public string NamehModal { get; set; } = string.Empty;
+
+        private async Task CommentModalDisplay_Click(AttendanceViewModel attendanceView, int year, int month, int day)
+        {
+            YearhModal = year;
+            MonthhModal = month;
+            DayhModal = day;
+            NamehModal = attendanceView.EmployeeName;
+
+            await JSRuntime.InvokeVoidAsync("showCommentModal", "JS function called from .NET");
+
         }
     }
 }

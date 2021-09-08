@@ -162,7 +162,7 @@ else
                                         classType = "DColor";
                                     }
 
-                                    <td style="padding-left:0; padding-right:10px; padding-bottom:0px; padding-top:0px;" class="comment">
+                                    <td style="padding-left:0; padding-right:10px; padding-bottom:0px; padding-top:0px;" class="comment" @onclick="() => CommentModalDisplay_Click(attendance, Convert.ToInt32(Year), Convert.ToInt32(Month), iDay)">
 
                                         <select style="width: 50px; padding-left: 0; padding-right: 0; border-left: 0; border-right: 0;" class="form-control form-control-sm @classType" name="AttendanceType" id="attendanceTypeId" @bind-value="attendance.Attendance[iDay]" @bind-value:event="oninput" @onchange="(() => SaveAttenndace_Click(attendance, Convert.ToInt32(Year), Convert.ToInt32(Month), iDay))">
                                             @foreach (var attendanceType in AttendanceTypes)
@@ -185,6 +185,27 @@ else
                         }
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">@NamehModal - @DayhModal/@( new CultureInfo("Es-Es").DateTimeFormat.GetMonthName(MonthhModal))/@YearhModal </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
             </div>
         </div>
     </div>
