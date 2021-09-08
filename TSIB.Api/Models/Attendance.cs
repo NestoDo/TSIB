@@ -11,10 +11,11 @@ namespace TSIB.Api.Models
         public int EmployeeId { get; set; }
         public int AttendanceTypeId { get; set; }
         public DateTime Date { get; set; }
+        public string Comment { get; set; }
         public int CreatedUser { get; set; }
         public int UpdatedUser { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }        
 
         public virtual AttendanceType AttendanceType { get; set; }
         public virtual Employee Employee { get; set; }

@@ -16,6 +16,7 @@ namespace TSIB.Pages
         public int EmployeeId { get; set; }
         public string EmployeeName { get; set; }
         public int[] Attendance { get; set; }
+        public string[] Comment { get; set; }
     }
 
     public partial class Attendance
@@ -104,9 +105,11 @@ namespace TSIB.Pages
                 avm.EmployeeName = $"{attendance.FirstName} {attendance.LastName}";
 
                 int[] attend = new int[this.Days + 1];
+                string[] comment = new string[this.Days + 1];
                 for (int i = 1; i < attend.Length; i++)
                 {
                     attend[i] = 0;
+                    comment[i] = string.Empty;
                 }
 
                 if (attendance.Attendances.Count > 0)
@@ -114,10 +117,12 @@ namespace TSIB.Pages
                     foreach (var item in attendance.Attendances)
                     {
                         attend[item.Date.Day] = item.AttendanceType.AttendanceTypeId;
+                        comment[item.Date.Day] = item.Comment;
                     }
                 }
 
                 avm.Attendance = attend;
+                avm.Comment = comment;
 
                 avml.Add(avm);
             }
@@ -129,6 +134,7 @@ namespace TSIB.Pages
         public int MonthhModal { get; set; } = 1;
         public int DayhModal { get; set; } = 1;
         public string NamehModal { get; set; } = string.Empty;
+        public string CommentModal { get; set; } = string.Empty;
 
         private async Task CommentModalDisplay_Click(AttendanceViewModel attendanceView, int year, int month, int day)
         {
@@ -136,8 +142,9 @@ namespace TSIB.Pages
             MonthhModal = month;
             DayhModal = day;
             NamehModal = attendanceView.EmployeeName;
+            CommentModal = attendanceView.Comment[day];
 
-            await JSRuntime.InvokeVoidAsync("showCommentModal", "JS function called from .NET");
+            await JSRuntime.InvokeVoidAsync("showCommentModal", CommentModal);
 
         }
     }
