@@ -17,7 +17,7 @@ namespace TSIB.Pages
 
 
         public IEnumerable<TSIB.Api.Models.Employee> Employees { get; set; }
-        public IEnumerable<TSIB.Api.Models.ReportSummary> ReportSummaryList { get; set; }
+        public IEnumerable<TSIB.Api.Models.ReportSummary> ReportSummaryList { get; set; } = new List<TSIB.Api.Models.ReportSummary>();
         public IEnumerable<TSIB.Api.Models.ReportSummaryDetail> ReportSummaryDetailList { get; set; }
         public IEnumerable<TSIB.Api.Models.ReportSummaryGroup> ReportSummaryGroupList { get; set; }
 
@@ -34,7 +34,7 @@ namespace TSIB.Pages
             string search = search = $"IsActive=true";
             Employees = (await EmployeeService.GetEmployees(search)).ToList();
 
-            await this.ReportSummarySearch_Click();
+            //await this.ReportSummarySearch_Click();
         }
 
         private async Task ReportSummarySearch_Click()
