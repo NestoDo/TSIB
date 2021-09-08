@@ -69,6 +69,8 @@ namespace TSIB.Pages
             };
 
             await AttendanceService.UpdateComment(attendance);
+
+            await JSRuntime.InvokeVoidAsync("hideCommentModal");
         }
 
 

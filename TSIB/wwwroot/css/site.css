@@ -290,3 +290,37 @@ thead tr:nth-child(1) th {
 .comment:hover {
     background-color: yellow;
 }
+
+.contentX { <!--
+    w ww.ja va 2 s . com--> text-align: center;
+    vertical-align: top;
+}
+
+.contentX1 {
+    display: inline-block;
+    overflow: auto;
+    -moz-box-shadow: #555 0 0 8px;
+    -webkit-box-shadow: #555 0 0 8px;
+    -o-box-shadow: #555 0 0 8px;
+    box-shadow: #555 0 0 8px;
+}
+
+.contentX2 {
+    display: inline-block;
+    height: 10px;
+    overflow: auto;
+    -moz-box-shadow: #555 0 0 8px;
+    -webkit-box-shadow: #555 0 0 8px;
+    -o-box-shadow: #555 0 0 8px;
+    box-shadow: #555 0 0 8px;
+}
+
+#mainX {
+    display: flex;
+}
+
+    #mainX div {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 10px;
+    }
