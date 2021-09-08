@@ -92,33 +92,6 @@ else
         </div>
 
         <div class="col-sm-3">
-            @if (ReportSummaryDetailList != null)
-            {
-
-                <table class="table table-hover table-sm table-bordered">
-                    <thead>
-                        <tr>
-                            <th class="backGray" scope="col">Tipo Asistencia</th>
-                            <th class="backGray" scope="col">Fecha</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var report in ReportSummaryDetailList)
-                        {
-                            int employeeId = report.EmployeeId;
-                            string classTDColor = $"{report.AttendanceType}Color";
-                            <tr class="@classTDColor">
-                                <td>@report.AttendanceType</td>
-                                <td>@report.Date.ToString("yyyy-MM-dd")</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            }
-
-        </div>
-
-        <div class="col-sm-3">
             @if (ReportSummaryGroupList != null)
             {
                 <table class="table table-hover table-sm table-bordered">
@@ -146,6 +119,34 @@ else
 
         </div>
 
+        <div class="col-sm-3">
+            @if (ReportSummaryDetailList != null)
+            {
+
+                <table class="table table-hover table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="backGray" scope="col">Tipo Asistencia</th>
+                            <th class="backGray" scope="col">Fecha</th>
+                            <th class="backGray" scope="col">Comentarios</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var report in ReportSummaryDetailList)
+                        {
+                            int employeeId = report.EmployeeId;
+                            string classTDColor = $"{report.AttendanceType}Color";
+                            <tr class="@classTDColor">
+                                <td>@report.AttendanceType</td>
+                                <td>@report.Date.ToString("dd")/@( new CultureInfo("Es-Es").DateTimeFormat.GetMonthName(report.Date.Month))/@report.Date.ToString("yyyy")</td>
+                                <td style="white-space: pre-line">@report.Comment</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+
+        </div>
 
     </div>
 }
