@@ -56,6 +56,22 @@ namespace TSIB.Pages
             await this.AttendanceSearch();
         }
 
+        private async Task SaveComment_Click()
+        {
+            DateTime dateAttendance = new DateTime(YearhModal, MonthhModal, DayhModal);
+
+            TSIB.Api.Models.Attendance attendance = new TSIB.Api.Models.Attendance()
+            {
+                EmployeeId = EmployeeIdModal,
+                Date = dateAttendance,
+                Comment = CommentModal.Trim()
+
+            };
+
+            await AttendanceService.UpdateComment(attendance);
+        }
+
+
         private async void SaveAttenndace_Click(AttendanceViewModel attendanceView, int year, int month, int day)
         {
             DateTime dateAttendance = new DateTime(year, month, day);
@@ -133,6 +149,7 @@ namespace TSIB.Pages
         public int YearhModal { get; set; } = 1900;
         public int MonthhModal { get; set; } = 1;
         public int DayhModal { get; set; } = 1;
+        public int EmployeeIdModal { get; set; } = 0;
         public string NamehModal { get; set; } = string.Empty;
         public string CommentModal { get; set; } = string.Empty;
 
@@ -142,6 +159,7 @@ namespace TSIB.Pages
             MonthhModal = month;
             DayhModal = day;
             NamehModal = attendanceView.EmployeeName;
+            EmployeeIdModal = attendanceView.EmployeeId;
             CommentModal = attendanceView.Comment[day];
 
             await JSRuntime.InvokeVoidAsync("showCommentModal", CommentModal);

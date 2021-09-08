@@ -47,5 +47,21 @@ namespace TSIB.Api.Controllers
             }
         }
 
+        [HttpPost("updateComment")]
+        public async Task<ActionResult<Attendance>> UpdateComment(Attendance attendance)
+        {
+            try
+            {
+                var updatedattendance = await _attendanceRepository.UpdateComment(attendance);
+
+                return updatedattendance;
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error updating data {ex.Message} {ex.InnerException}");
+
+            }
+        }
+
     }
 }

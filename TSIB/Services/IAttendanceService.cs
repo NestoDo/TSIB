@@ -10,5 +10,6 @@ namespace TSIB.Services
     {
         Task<IEnumerable<Employee>> GetAttendance(string search);
         Task<Attendance> UpdateAttendance(Attendance attendance);
+        Task<Attendance> UpdateComment(Attendance attendance);
     }
 }

@@ -200,12 +200,12 @@ else
                     </button>
                 </div>
                 <div class="modal-body">
-                    <textarea class="form-control" id="txtComment" rows="3">
+                    <textarea class="form-control" id="txtComment" rows="3" @bind="@CommentModal">
                     </textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-primary" @onclick="SaveComment_Click">Guardar</button>
                 </div>
             </div>
         </div>

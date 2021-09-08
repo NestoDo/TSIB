@@ -75,5 +75,26 @@ namespace TSIB.Api.Repositories
                 return result.FirstOrDefault();
             }
         }
+
+        public async Task<Attendance> UpdateComment(Attendance attendance)
+        {
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@EmployeeId", attendance.EmployeeId);
+            parameters.Add("@Date", attendance.Date);
+            parameters.Add("@Comment", attendance.Comment);
+
+            using (SqlConnection con = new SqlConnection(_appDbContext.Database.GetDbConnection().ConnectionString))
+            {
+                con.Open();
+
+                var result = await con.QueryAsync<Attendance>(
+                    sql: "UpdateComment",
+                    param: parameters,
+                    commandType: CommandType.StoredProcedure);
+
+                return result.FirstOrDefault();
+            }
+        }
     }
 }

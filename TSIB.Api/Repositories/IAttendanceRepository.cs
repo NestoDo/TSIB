@@ -10,5 +10,6 @@ namespace TSIB.Api.Repositories
     {
         Task<IEnumerable<Employee>> GetAttendance(int employeeId, int year, int month);
         Task<Attendance> UpdateAttendance(Attendance attendance);
+        Task<Attendance> UpdateComment(Attendance attendance);
     }
 }
