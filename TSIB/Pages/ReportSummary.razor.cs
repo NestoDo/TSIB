@@ -22,7 +22,7 @@ namespace TSIB.Pages
         public IEnumerable<TSIB.Api.Models.ReportSummaryGroup> ReportSummaryGroupList { get; set; }
 
 
-        public DateTime DateInit { get; set; } = DateTime.Now;
+        public DateTime DateInit { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
         public DateTime DateEnd { get; set; } = DateTime.Now;
 
         public int EmployeeId { get; set; } = 0;
