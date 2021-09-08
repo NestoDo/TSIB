@@ -123,27 +123,30 @@ else
             @if (ReportSummaryDetailList != null)
             {
 
-                <table class="table table-hover table-sm table-bordered">
-                    <thead>
-                        <tr>
-                            <th class="backGray" scope="col">Tipo Asistencia</th>
-                            <th class="backGray" scope="col">Fecha</th>
-                            <th class="backGray" scope="col">Comentarios</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var report in ReportSummaryDetailList)
-                        {
-                            int employeeId = report.EmployeeId;
-                            string classTDColor = $"{report.AttendanceType}Color";
-                            <tr class="@classTDColor">
-                                <td>@report.AttendanceType</td>
-                                <td>@report.Date.ToString("dd")/@( new CultureInfo("Es-Es").DateTimeFormat.GetMonthName(report.Date.Month))/@report.Date.ToString("yyyy")</td>
-                                <td>@report.Comment</td>
+                @*<div class="div-table-fixed">*@
+
+                    <table class="table table-bordered table-hover table-responsive">
+                        <thead>
+                            <tr class="topheader">
+                                <th class="backGray" scope="col">Tipo</th>
+                                <th class="backGray" scope="col">Fecha</th>
+                                <th class="backGray" scope="col">Comentarios</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var report in ReportSummaryDetailList)
+                            {
+                                int employeeId = report.EmployeeId;
+                                string classTDColor = $"{report.AttendanceType}Color";
+                                <tr class="@classTDColor">
+                                    <td>@report.AttendanceType</td>
+                                    <td>@report.Date.ToString("dd")/@( new CultureInfo("Es-Es").DateTimeFormat.GetMonthName(report.Date.Month))/@report.Date.ToString("yyyy")</td>
+                                    <td>@report.Comment</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                @*</div>*@
             }
 
         </div>
