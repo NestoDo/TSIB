@@ -39,7 +39,7 @@ namespace TSIB.Pages
 
         private async Task ReportSummarySearch_Click()
         {
-            string search = search = $"employeeId={EmployeeId}&dateInit={DateInit}&dateEnd={DateEnd}";
+            string search = search = $"employeeId={EmployeeId}&dateEnd={DateEnd}";
             ReportSummaryList = (await ReportService.GetReportSummary(search)).ToList();
         }
 
@@ -47,10 +47,10 @@ namespace TSIB.Pages
         {
             EmployeeName = employeeName;
 
-            string search = search = $"employeeId={employeeId}&dateInit={DateInit}&dateEnd={DateEnd}";
+            string search = search = $"employeeId={employeeId}&dateEnd={DateEnd}";
             ReportSummaryDetailList = (await ReportService.GetReportSummaryDetail(search)).ToList();
 
-            search = search = $"employeeId={employeeId}&dateInit={DateInit}&dateEnd={DateEnd}";
+            search = search = $"employeeId={employeeId}&dateEnd={DateEnd}";
             ReportSummaryGroupList = (await ReportService.GetReportSummaryGroup(search)).ToList();
         }
     }

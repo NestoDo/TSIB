@@ -8,8 +8,8 @@ namespace TSIB.Api.Repositories
 {
     public interface IReportRepository
     {
-        Task<IEnumerable<ReportSummary>> GetReportSummary(int employeeId, DateTime dateInit, DateTime dateEnd);
-        Task<IEnumerable<ReportSummaryDetail>> GetReportSummaryDetail(int employeeId, DateTime dateInit, DateTime dateEnd);
-        Task<IEnumerable<ReportSummaryGroup>> GetReportSummaryGroup(int employeeId, DateTime dateInit, DateTime dateEnd);
+        Task<IEnumerable<ReportSummary>> GetReportSummary(int employeeId, DateTime dateEnd);
+        Task<IEnumerable<ReportSummaryDetail>> GetReportSummaryDetail(int employeeId, DateTime dateEnd);
+        Task<IEnumerable<ReportSummaryGroup>> GetReportSummaryGroup(int employeeId, DateTime dateEnd);
     }
 }

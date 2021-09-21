@@ -18,7 +18,7 @@ namespace TSIB.Api.Repositories
         {
             _appDbContext = appDbContext;
         }
-        public async Task<IEnumerable<ReportSummary>> GetReportSummary(int employeeId, DateTime dateInit, DateTime dateEnd)
+        public async Task<IEnumerable<ReportSummary>> GetReportSummary(int employeeId, DateTime dateEnd)
         {
             var lookup = new Dictionary<int, Employee>();
 
@@ -27,7 +27,6 @@ namespace TSIB.Api.Repositories
                 con.Open();
                 var parameters = new DynamicParameters();
                 parameters.Add("@EmployeeId", employeeId);
-                parameters.Add("@DateInit", dateInit.Default());
                 parameters.Add("@DateEnd", dateEnd.Default());
 
                 var result  = await con.QueryAsync<ReportSummary>(
@@ -39,7 +38,7 @@ namespace TSIB.Api.Repositories
             }
         }
 
-        public async Task<IEnumerable<ReportSummaryDetail>> GetReportSummaryDetail(int employeeId, DateTime dateInit, DateTime dateEnd)
+        public async Task<IEnumerable<ReportSummaryDetail>> GetReportSummaryDetail(int employeeId, DateTime dateEnd)
         {
             var lookup = new Dictionary<int, Employee>();
 
@@ -48,7 +47,6 @@ namespace TSIB.Api.Repositories
                 con.Open();
                 var parameters = new DynamicParameters();
                 parameters.Add("@EmployeeId", employeeId);
-                parameters.Add("@DateInit", dateInit.Default());
                 parameters.Add("@DateEnd", dateEnd.Default());
 
                 var result = await con.QueryAsync<ReportSummaryDetail>(
@@ -60,7 +58,7 @@ namespace TSIB.Api.Repositories
             }
         }
 
-        public async Task<IEnumerable<ReportSummaryGroup>> GetReportSummaryGroup(int employeeId, DateTime dateInit, DateTime dateEnd)
+        public async Task<IEnumerable<ReportSummaryGroup>> GetReportSummaryGroup(int employeeId, DateTime dateEnd)
         {
             var lookup = new Dictionary<int, Employee>();
 
@@ -69,7 +67,6 @@ namespace TSIB.Api.Repositories
                 con.Open();
                 var parameters = new DynamicParameters();
                 parameters.Add("@EmployeeId", employeeId);
-                parameters.Add("@DateInit", dateInit.Default());
                 parameters.Add("@DateEnd", dateEnd.Default());
 
                 var result = await con.QueryAsync<ReportSummaryGroup>(
