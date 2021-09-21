@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Misc;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -28,6 +29,7 @@ namespace TSIB.Api.Repositories
             parameters.Add("@Address", employee.Address);
             parameters.Add("@DepartmentId", employee.DepartmentId);
             parameters.Add("@IsActive", true);
+            parameters.Add("@StartDate", employee.StartDate.Default());
             parameters.Add("@CreatedUser", 1);
             parameters.Add("@UpdatedUser", 1);
             parameters.Add("@CreatedDate", DateTime.Now);
@@ -89,6 +91,7 @@ namespace TSIB.Api.Repositories
             parameters.Add("@Address", employee.Address);
             parameters.Add("@DepartmentId", employee.DepartmentId);
             parameters.Add("@IsActive", employee.IsActive);
+            parameters.Add("@StartDate", employee.StartDate.Default());
             parameters.Add("@UpdatedUser", 1);
             parameters.Add("@UpdatedDate", DateTime.Now);
 

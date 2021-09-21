@@ -6,3 +6,4 @@ C:\Users\omare\source\repos\TSIB\Misc\obj\Debug\netcoreapp3.1\Misc.AssemblyInfo.
 C:\Users\omare\source\repos\TSIB\Misc\obj\Debug\netcoreapp3.1\Misc.csproj.CoreCompileInputs.cache
 C:\Users\omare\source\repos\TSIB\Misc\obj\Debug\netcoreapp3.1\Misc.dll
 C:\Users\omare\source\repos\TSIB\Misc\obj\Debug\netcoreapp3.1\Misc.pdb
+C:\Users\omare\source\repos\TSIB\Misc\obj\Debug\netcoreapp3.1\Misc.csprojAssemblyReference.cache

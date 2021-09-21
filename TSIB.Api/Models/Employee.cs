@@ -26,6 +26,7 @@ namespace TSIB.Api.Models
         public string Address { get; set; }
         public int DepartmentId { get; set; }
         public bool IsActive { get; set; }
+        public DateTime StartDate { get; set; }
         public int CreatedUser { get; set; }
         public int UpdatedUser { get; set; }
         public DateTime CreatedDate { get; set; }
