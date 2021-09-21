@@ -273,6 +273,12 @@ th:first-child, td:first-child {
     overflow: scroll;
 }
 
+.table-responsiveCustom {
+    height: 350px;
+    overflow: scroll;
+}
+
+
 thead tr:nth-child(1) th {
     position: sticky;
     top: 0;
