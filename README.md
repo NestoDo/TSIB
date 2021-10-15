@@ -1,2 +1,2 @@
 # TSIB
-Project to manage employee timesheets, I build it in a couple weekends for a friend
+Project to manage employees timesheets, I build it in a couple weekends for a friend company
